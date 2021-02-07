@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Http;
 
-namespace SmartLab.API.App_Start
+namespace SmartLab.API
 {
     public class AutofacConfig
     {
@@ -26,6 +26,7 @@ namespace SmartLab.API.App_Start
             var resolver = new AutofacWebApiDependencyResolver(container);
             GlobalConfiguration.Configuration.DependencyResolver = resolver;
         }
+
         private static void RegisterServices(ContainerBuilder builder)
         {
             builder.Register<IUnitOfWork>(c =>
