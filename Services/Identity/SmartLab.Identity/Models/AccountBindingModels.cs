@@ -48,6 +48,10 @@ namespace SmartLab.Identity.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //[Required]
+        //[Display(Name = "RFID_KeyId")]
+        //public string RFID_KeyId { get; set; }
     }
 
     public class RegisterExternalBindingModel
