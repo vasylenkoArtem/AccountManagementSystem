@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SmartLab.Domain
+namespace AMS.Domain
 {
     public interface IUnitOfWork : IDisposable
     {

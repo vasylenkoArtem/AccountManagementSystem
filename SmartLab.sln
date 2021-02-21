@@ -3,21 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartLab.Database", "Services\Application\SmartLab.Database\SmartLab.Database.csproj", "{3DDF600E-C0B9-46D6-AD2C-C931620D2FCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMS.Database", "Services\Application\SmartLab.Database\AMS.Database.csproj", "{3DDF600E-C0B9-46D6-AD2C-C931620D2FCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartLab.Domain", "Services\Application\SmartLab.Domain\SmartLab.Domain.csproj", "{51A6DF08-A628-4EB7-9A00-9DEAA9514ABE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMS.Domain", "Services\Application\SmartLab.Domain\AMS.Domain.csproj", "{51A6DF08-A628-4EB7-9A00-9DEAA9514ABE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartLab.Logic", "Services\Application\SmartLab.Logic\SmartLab.Logic.csproj", "{1C1ACC03-E4B2-427D-8EBE-FE186000E021}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMS.Logic", "Services\Application\SmartLab.Logic\AMS.Logic.csproj", "{1C1ACC03-E4B2-427D-8EBE-FE186000E021}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartLab.API", "Services\Application\SmartLab.API\SmartLab.API.csproj", "{B0C55833-FA54-4B1B-B07B-68421C9D86D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMS.APIold", "Services\Application\SmartLab.API\AMS.APIold.csproj", "{B0C55833-FA54-4B1B-B07B-68421C9D86D4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{65C1ACA1-D06B-436C-8DCE-AEC5B349916F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccountsManagementSystem", "AccountsManagementSystem", "{65C1ACA1-D06B-436C-8DCE-AEC5B349916F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{D7ECB209-9D6E-4AD5-BB1D-350E276E8B40}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartLab.Identity", "Services\Identity\SmartLab.Identity\SmartLab.Identity.csproj", "{153FA12A-7029-4C1B-B2A8-1324242A9CD5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartLab.Identity.Database", "Services\Identity\SmartLab.Identity.Database\SmartLab.Identity.Database.csproj", "{80267531-8252-4167-AF64-A063DADF2AD8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C760CC4D-C8DA-4870-B00C-5839BFF8C8DC}"
 EndProject
@@ -26,6 +24,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{EA23B1CA-CD07-40EA-8407-0ABF436D9C32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQEventBus", "Services\EventBus\RabbitMQEventBus\RabbitMQEventBus.csproj", "{D03240D5-9538-4E6F-A129-5D33B904D56D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMS.API", "Services\Application\AMS.API\AMS.API.csproj", "{F1361977-6680-4FF8-A722-DDE7602A6248}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,6 @@ Global
 		{153FA12A-7029-4C1B-B2A8-1324242A9CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{153FA12A-7029-4C1B-B2A8-1324242A9CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{153FA12A-7029-4C1B-B2A8-1324242A9CD5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80267531-8252-4167-AF64-A063DADF2AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80267531-8252-4167-AF64-A063DADF2AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80267531-8252-4167-AF64-A063DADF2AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80267531-8252-4167-AF64-A063DADF2AD8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{072AF3DE-0C5B-4428-A17B-F4223D2DBEC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{072AF3DE-0C5B-4428-A17B-F4223D2DBEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{072AF3DE-0C5B-4428-A17B-F4223D2DBEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,6 +61,10 @@ Global
 		{D03240D5-9538-4E6F-A129-5D33B904D56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D03240D5-9538-4E6F-A129-5D33B904D56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D03240D5-9538-4E6F-A129-5D33B904D56D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1361977-6680-4FF8-A722-DDE7602A6248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1361977-6680-4FF8-A722-DDE7602A6248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1361977-6680-4FF8-A722-DDE7602A6248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1361977-6680-4FF8-A722-DDE7602A6248}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,9 +75,9 @@ Global
 		{1C1ACC03-E4B2-427D-8EBE-FE186000E021} = {65C1ACA1-D06B-436C-8DCE-AEC5B349916F}
 		{B0C55833-FA54-4B1B-B07B-68421C9D86D4} = {65C1ACA1-D06B-436C-8DCE-AEC5B349916F}
 		{153FA12A-7029-4C1B-B2A8-1324242A9CD5} = {D7ECB209-9D6E-4AD5-BB1D-350E276E8B40}
-		{80267531-8252-4167-AF64-A063DADF2AD8} = {D7ECB209-9D6E-4AD5-BB1D-350E276E8B40}
 		{072AF3DE-0C5B-4428-A17B-F4223D2DBEC8} = {C760CC4D-C8DA-4870-B00C-5839BFF8C8DC}
 		{D03240D5-9538-4E6F-A129-5D33B904D56D} = {EA23B1CA-CD07-40EA-8407-0ABF436D9C32}
+		{F1361977-6680-4FF8-A722-DDE7602A6248} = {65C1ACA1-D06B-436C-8DCE-AEC5B349916F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4C3A278-0949-4081-BC3A-5369637138D6}

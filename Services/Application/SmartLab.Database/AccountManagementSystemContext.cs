@@ -1,5 +1,5 @@
-﻿using SmartLab.Domain;
-using SmartLab.Domain.Base;
+﻿using AMS.Domain;
+using AMS.Domain.Base;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,12 +13,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Z.EntityFramework.Plus;
 
-namespace SmartLab.Database
+namespace AMS.Database
 {
    
-    public class SmartLabContext : DbContext, IUnitOfWork
+    public class AccountManagementSystemContext : DbContext, IUnitOfWork
     {
-        public SmartLabContext() : base("DefaultConnection")
+        public AccountManagementSystemContext() : base("DefaultConnection")
         {
 
         }

@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace SmartLab.Identity.Areas.HelpPage.ModelDescriptions
+namespace AMS.Identity.Areas.HelpPage.ModelDescriptions
 {
     public class ComplexTypeModelDescription : ModelDescription
     {

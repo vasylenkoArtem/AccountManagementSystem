@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace SmartLab.Identity
+namespace AMS.Identity
 {
     public class FilterConfig
     {

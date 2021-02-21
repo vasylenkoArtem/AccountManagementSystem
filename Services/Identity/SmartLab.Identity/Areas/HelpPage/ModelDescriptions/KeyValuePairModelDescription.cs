@@ -1,4 +1,4 @@
-namespace SmartLab.Identity.Areas.HelpPage.ModelDescriptions
+namespace AMS.Identity.Areas.HelpPage.ModelDescriptions
 {
     public class KeyValuePairModelDescription : ModelDescription
     {

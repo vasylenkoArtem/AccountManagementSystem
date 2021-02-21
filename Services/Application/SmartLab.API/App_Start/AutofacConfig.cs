@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using SmartLab.API.Modules.Confuguration;
-using SmartLab.Database;
-using SmartLab.Domain;
+using AMS.API.Modules.Confuguration;
+using AMS.Database;
+using AMS.Domain;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Http;
 
-namespace SmartLab.API
+namespace AMS.API
 {
     public class AutofacConfig
     {
@@ -20,8 +20,8 @@ namespace SmartLab.API
         public static void Configure()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            RegisterServices(builder);
+            //builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            //RegisterServices(builder);
             var container = builder.Build();
             var resolver = new AutofacWebApiDependencyResolver(container);
             GlobalConfiguration.Configuration.DependencyResolver = resolver;
@@ -31,7 +31,7 @@ namespace SmartLab.API
         {
             builder.Register<IUnitOfWork>(c =>
             {
-                return new SmartLabContext();
+                return new AccountManagementSystemContext();
             }).InstancePerRequest();
 
             builder.Register(_ => new ConnectionStringProvider(_queriesConnectionString))

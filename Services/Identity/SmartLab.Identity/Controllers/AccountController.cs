@@ -13,11 +13,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using SmartLab.Identity.Models;
-using SmartLab.Identity.Providers;
-using SmartLab.Identity.Results;
+using AMS.Identity.Models;
+using AMS.Identity.Providers;
+using AMS.Identity.Results;
 
-namespace SmartLab.Identity.Controllers
+namespace AMS.Identity.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]

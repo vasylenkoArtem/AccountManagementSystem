@@ -16,7 +16,7 @@ using System.Web.Http;
 using System.Web.Http.OData;
 #endif
 
-namespace SmartLab.Identity.Areas.HelpPage
+namespace AMS.Identity.Areas.HelpPage
 {
     /// <summary>
     /// Use this class to customize the Help Page.

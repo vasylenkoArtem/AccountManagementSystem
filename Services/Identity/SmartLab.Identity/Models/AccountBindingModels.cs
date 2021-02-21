@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace SmartLab.Identity.Models
+namespace AMS.Identity.Models
 {
     // Models used as parameters to AccountController actions.
 

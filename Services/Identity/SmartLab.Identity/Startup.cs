@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(SmartLab.Identity.Startup))]
+[assembly: OwinStartup(typeof(AMS.Identity.Startup))]
 
-namespace SmartLab.Identity
+namespace AMS.Identity
 {
     public partial class Startup
     {

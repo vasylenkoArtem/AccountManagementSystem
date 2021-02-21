@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using SmartLab.Identity.Areas.HelpPage.ModelDescriptions;
-using SmartLab.Identity.Areas.HelpPage.Models;
+using AMS.Identity.Areas.HelpPage.ModelDescriptions;
+using AMS.Identity.Areas.HelpPage.Models;
 
-namespace SmartLab.Identity.Areas.HelpPage.Controllers
+namespace AMS.Identity.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

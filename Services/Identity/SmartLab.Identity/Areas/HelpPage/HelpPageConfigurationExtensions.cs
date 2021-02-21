@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using SmartLab.Identity.Areas.HelpPage.ModelDescriptions;
-using SmartLab.Identity.Areas.HelpPage.Models;
+using AMS.Identity.Areas.HelpPage.ModelDescriptions;
+using AMS.Identity.Areas.HelpPage.Models;
 
-namespace SmartLab.Identity.Areas.HelpPage
+namespace AMS.Identity.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

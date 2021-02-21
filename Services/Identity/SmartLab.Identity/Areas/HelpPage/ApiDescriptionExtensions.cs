@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace SmartLab.Identity.Areas.HelpPage
+namespace AMS.Identity.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

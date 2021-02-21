@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using SmartLab.Identity.Areas.HelpPage.ModelDescriptions;
+using AMS.Identity.Areas.HelpPage.ModelDescriptions;
 
-namespace SmartLab.Identity.Areas.HelpPage
+namespace AMS.Identity.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.

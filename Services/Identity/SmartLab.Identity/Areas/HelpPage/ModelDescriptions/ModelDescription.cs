@@ -1,6 +1,6 @@
 using System;
 
-namespace SmartLab.Identity.Areas.HelpPage.ModelDescriptions
+namespace AMS.Identity.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

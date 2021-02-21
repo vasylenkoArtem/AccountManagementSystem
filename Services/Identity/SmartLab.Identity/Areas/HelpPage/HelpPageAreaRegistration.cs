@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace SmartLab.Identity.Areas.HelpPage
+namespace AMS.Identity.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

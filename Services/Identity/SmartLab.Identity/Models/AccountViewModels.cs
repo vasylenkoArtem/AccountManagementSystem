@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SmartLab.Identity.Models
+namespace AMS.Identity.Models
 {
     // Models returned by AccountController actions.
 

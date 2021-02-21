@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SmartLab.API.Modules.Confuguration
+namespace AMS.API.Helpers
 {
     public interface IConnectionStringProvider
     {

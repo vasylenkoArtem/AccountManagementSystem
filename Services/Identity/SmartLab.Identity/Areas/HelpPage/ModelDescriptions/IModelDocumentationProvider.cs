@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace SmartLab.Identity.Areas.HelpPage.ModelDescriptions
+namespace AMS.Identity.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

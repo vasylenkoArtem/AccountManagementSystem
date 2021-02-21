@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using SmartLab.Identity.Areas.HelpPage.ModelDescriptions;
+using AMS.Identity.Areas.HelpPage.ModelDescriptions;
 
-namespace SmartLab.Identity.Areas.HelpPage.Models
+namespace AMS.Identity.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

@@ -1,6 +1,6 @@
 using System;
 
-namespace SmartLab.Identity.Areas.HelpPage.ModelDescriptions
+namespace AMS.Identity.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Use this attribute to change the name of the <see cref="ModelDescription"/> generated for a type.

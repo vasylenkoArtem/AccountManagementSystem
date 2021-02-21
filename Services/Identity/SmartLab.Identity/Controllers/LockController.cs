@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace SmartLab.Identity.Controllers
+namespace AMS.Identity.Controllers
 {
     [Authorize(Roles = "LaboratoryWorker")]
     [RoutePrefix("lock")]

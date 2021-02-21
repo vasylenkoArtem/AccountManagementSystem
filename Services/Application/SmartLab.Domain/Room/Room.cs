@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartLab.Domain
+namespace AMS.Domain
 {
     public class Room
     {

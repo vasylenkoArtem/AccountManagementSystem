@@ -1,17 +1,26 @@
-﻿using System;
+﻿using AMS.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace SmartLab.API.Controllers
+namespace AMS.API.Controllers
 {
     public class ValuesController : ApiController
     {
+        AccountManagementSystemContext _context;
+
+        public ValuesController(AccountManagementSystemContext context)
+        {
+            _context = context;
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
+            var test = _context.Users.ToArray();
             return new string[] { "value1", "value2" };
         }
 

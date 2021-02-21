@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartLab.Domain.Base
+namespace AMS.Domain.Base
 {
     public class DbContextTransactionProvider : IDbContextTransactionProvider
     {

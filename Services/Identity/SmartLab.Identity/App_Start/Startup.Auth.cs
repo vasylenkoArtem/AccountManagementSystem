@@ -8,10 +8,10 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using SmartLab.Identity.Providers;
-using SmartLab.Identity.Models;
+using AMS.Identity.Providers;
+using AMS.Identity.Models;
 
-namespace SmartLab.Identity
+namespace AMS.Identity
 {
     public partial class Startup
     {

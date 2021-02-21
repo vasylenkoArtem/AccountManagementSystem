@@ -57,8 +57,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202102211707269_InitialScheme.cs" />
+    <Compile Include="Migrations\202102211707269_InitialScheme.Designer.cs">
+      <DependentUpon>202102211707269_InitialScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SmartLabContext.cs" />
+    <Compile Include="AccountManagementSystemContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -68,10 +73,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartLab.Domain\SmartLab.Domain.csproj">
+    <ProjectReference Include="..\SmartLab.Domain\AMS.Domain.csproj">
       <Project>{51a6df08-a628-4eb7-9a00-9deaa9514abe}</Project>
-      <Name>SmartLab.Domain</Name>
+      <Name>AMS.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202102211707269_InitialScheme.resx">
+      <DependentUpon>202102211707269_InitialScheme.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
