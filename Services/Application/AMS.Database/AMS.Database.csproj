@@ -73,7 +73,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartLab.Domain\AMS.Domain.csproj">
+    <ProjectReference Include="..\AMS.Domain\AMS.Domain.csproj">
       <Project>{51a6df08-a628-4eb7-9a00-9deaa9514abe}</Project>
       <Name>AMS.Domain</Name>
     </ProjectReference>
