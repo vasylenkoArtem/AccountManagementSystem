@@ -19,6 +19,7 @@ namespace SmartLab.Logic.Queries.UserRoom
     public class UserRoomQueries : IUserRoomQueries
     {
         private readonly string _connectionString;
+
         public UserRoomQueries(IConnectionStringProvider connectionString)
         {
             _connectionString = connectionString.ConnectionString;

@@ -23,7 +23,7 @@ namespace SmartLab.Logic.Services.UserRoom
 
         public async Task<bool> UnlockRoom(string roomNumber)
         {
-            //TODO: Change when identity will be confidured
+            //TODO: Change hardcode rfid key when identity will be confidured
             var rfidCardId = "gfjk45423ff"; //_userProvider.GetUserId..
 
             var userId = await _userRoomQueries.GetUserIdByRFIDCard(rfidCardId);
