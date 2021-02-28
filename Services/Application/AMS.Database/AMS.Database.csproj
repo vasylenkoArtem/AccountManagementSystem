@@ -57,9 +57,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202102211707269_InitialScheme.cs" />
-    <Compile Include="Migrations\202102211707269_InitialScheme.Designer.cs">
-      <DependentUpon>202102211707269_InitialScheme.cs</DependentUpon>
+    <Compile Include="Migrations\202102281618092_InitilaScheme.cs" />
+    <Compile Include="Migrations\202102281618092_InitilaScheme.Designer.cs">
+      <DependentUpon>202102281618092_InitilaScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102281630595_AddIsAvaliableColumnToUserRoom.cs" />
+    <Compile Include="Migrations\202102281630595_AddIsAvaliableColumnToUserRoom.Designer.cs">
+      <DependentUpon>202102281630595_AddIsAvaliableColumnToUserRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,8 +83,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102211707269_InitialScheme.resx">
-      <DependentUpon>202102211707269_InitialScheme.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202102281618092_InitilaScheme.resx">
+      <DependentUpon>202102281618092_InitilaScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102281630595_AddIsAvaliableColumnToUserRoom.resx">
+      <DependentUpon>202102281630595_AddIsAvaliableColumnToUserRoom.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

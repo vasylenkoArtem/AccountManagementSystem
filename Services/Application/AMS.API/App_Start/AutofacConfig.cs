@@ -9,7 +9,9 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
-using AMS.API.Helpers;
+using AMS.Helpers;
+using SmartLab.Logic.Queries.UserRoom;
+using SmartLab.Logic.Services.UserRoom;
 
 namespace AMS.API
 {
@@ -37,9 +39,13 @@ namespace AMS.API
             builder.Register(_ => new ConnectionStringProvider(_queriesConnectionString))
                .As<IConnectionStringProvider>();
 
-            //bldr.RegisterType<fffWriteService>()
-            //     .As<IfffWriteService>()
-            //  .InstancePerRequest();
+            builder.RegisterType<UserRoomQueries>()
+                 .As<IUserRoomQueries>()
+                 .InstancePerRequest();
+
+            builder.RegisterType<UserRoomService>()
+                .As<IUserRoomService>()
+                .InstancePerRequest();
 
         }
     }

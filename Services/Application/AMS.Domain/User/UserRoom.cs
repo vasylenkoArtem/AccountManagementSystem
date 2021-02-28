@@ -16,6 +16,8 @@ namespace AMS.Domain
 
         public int RoomId { get; private set; }
 
+        public bool IsAvaliable { get; private set; }
+
         public virtual Room Room { get; set; }
 
         public virtual User User { get; set; }
