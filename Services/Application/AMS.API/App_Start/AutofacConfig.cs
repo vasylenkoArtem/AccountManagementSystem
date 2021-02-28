@@ -12,6 +12,7 @@ using System.Web.Http;
 using AMS.Helpers;
 using SmartLab.Logic.Queries.UserRoom;
 using SmartLab.Logic.Services.UserRoom;
+using SmartLab.Logic.Queries;
 
 namespace AMS.API
 {
@@ -46,6 +47,11 @@ namespace AMS.API
             builder.RegisterType<UserRoomService>()
                 .As<IUserRoomService>()
                 .InstancePerRequest();
+
+            builder.RegisterType<UserQueries>()
+                .As<IUserQueries>()
+                .InstancePerRequest();
+
 
         }
     }
