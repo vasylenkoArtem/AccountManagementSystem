@@ -14,8 +14,17 @@ namespace AMS.Logic.Services
 
     public class UserService : IUserService
     {
+        private readonly INotificationService _notificationService;
+        
+        public UserService(INotificationService notificationService)
+        {
+            _notificationService = notificationService;
+        }
+
         public User AddNewUser(UserBuilderParams userBuilderParams)
         {
+            _notificationService.SendTextMessage(1, "AAAA");
+
             var userBuilder = new UserBuilder(userBuilderParams);
             var userBuilderDirector = new UserBuilderDirector
             {
@@ -25,6 +34,9 @@ namespace AMS.Logic.Services
             userBuilderDirector.BuildUser(userBuilderParams.UserTypeId);
             var user = userBuilder.GetResult();
 
+            //save user
+
+            
             return user;
         }
     }

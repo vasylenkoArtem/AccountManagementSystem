@@ -2,7 +2,7 @@
 using AMS.Domain.IoT;
 using AMS.Domain.User;
 using AMS.Logic.Constants;
-using SmartLab.Logic.Enums;
+using AMS.Logic.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

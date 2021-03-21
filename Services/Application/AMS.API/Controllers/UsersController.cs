@@ -35,6 +35,7 @@ namespace AMS.API.Controllers
         }
 
         [HttpPost]
+        [Route("")]
         public async Task<IHttpActionResult> AddUser()
         {
             var requestParams = await Request.Content.GetFromBodyAsync<UserBuilderParams>();
