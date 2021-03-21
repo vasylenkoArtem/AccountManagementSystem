@@ -53,10 +53,11 @@
     <Compile Include="Queries\UserRoom\UserRoomQueries.cs" />
     <Compile Include="Queries\User\UserQueries.cs" />
     <Compile Include="Queries\User\UserViewModels.cs" />
-    <Compile Include="Services\UserBuilder.cs" />
-    <Compile Include="Services\UserBuilderDirector.cs" />
-    <Compile Include="Services\UserRoomService.cs" />
-    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
+    <Compile Include="Services\User\UserBuilder.cs" />
+    <Compile Include="Services\User\UserBuilderDirector.cs" />
+    <Compile Include="Services\User\UserRoomService.cs" />
+    <Compile Include="Services\User\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AMS.Domain\AMS.Domain.csproj">
