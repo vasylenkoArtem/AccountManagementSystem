@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AMS.Domain.Computer;
+using AMS.Domain.Printer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AMS.Domain
+namespace AMS.Domain.User
 {
     public class User
     {
@@ -34,5 +36,16 @@ namespace AMS.Domain
         /// AspNetUser id that identifies RFID card 
         /// </summary>
         public string IdentityLockUserId { get; set; }
+
+        public virtual List<UserPrinter> UserPrinters { get; set; }
+
+        public virtual List<UserComputer> Computers { get; set; }
+
+
+        public User()
+        {
+            Computers = new List<UserComputer>();
+            UserPrinters = new List<UserPrinter>();
+        }
     }
 }

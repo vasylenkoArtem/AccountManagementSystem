@@ -10,9 +10,9 @@ using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using AMS.Helpers;
-using SmartLab.Logic.Queries.UserRoom;
-using SmartLab.Logic.Services.UserRoom;
-using SmartLab.Logic.Queries;
+using AMS.Logic.Queries.UserRoom;
+using AMS.Logic.Services;
+using AMS.Logic.Queries;
 
 namespace AMS.API
 {
