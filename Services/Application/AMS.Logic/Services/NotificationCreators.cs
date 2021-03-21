@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AMS.Logic.Services
 {
+    /// <summary>
+    /// TO DELETE, UNUSED PATTERN
+    /// </summary>
     public abstract class NotificationCreator
     {
         public abstract INotificationProvider FactoryMethod();
