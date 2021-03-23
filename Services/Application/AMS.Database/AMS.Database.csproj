@@ -138,6 +138,10 @@
     <Compile Include="Migrations\202103202156234_Add_Printer_IoT_Computer_Notification_Tables.Designer.cs">
       <DependentUpon>202103202156234_Add_Printer_IoT_Computer_Notification_Tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103231929402_RemoveNotificationTable.cs" />
+    <Compile Include="Migrations\202103231929402_RemoveNotificationTable.Designer.cs">
+      <DependentUpon>202103231929402_RemoveNotificationTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MongoDB\IMongoDbConnector.cs" />
     <Compile Include="MongoDB\MongoDbConnector.cs" />
@@ -172,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103202156234_Add_Printer_IoT_Computer_Notification_Tables.resx">
       <DependentUpon>202103202156234_Add_Printer_IoT_Computer_Notification_Tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103231929402_RemoveNotificationTable.resx">
+      <DependentUpon>202103231929402_RemoveNotificationTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

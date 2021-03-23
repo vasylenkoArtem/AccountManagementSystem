@@ -2,7 +2,6 @@
 using AMS.Domain.Base;
 using AMS.Domain.Computer;
 using AMS.Domain.IoT;
-using AMS.Domain.Notification;
 using AMS.Domain.Printer;
 using AMS.Domain.User;
 using System;
@@ -39,7 +38,6 @@ namespace AMS.Database
         public DbSet<IoTSet> IoTSets { get; set; }
         public DbSet<IoTComponent> IoTComponents { get; set; }
         public DbSet<IoTSetComponent> IoTSetComponents { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
 
 
         public IDbContextTransactionProvider BeginTransaction()

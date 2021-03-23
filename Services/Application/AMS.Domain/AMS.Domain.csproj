@@ -59,7 +59,6 @@
     <Compile Include="IoT\IoTComponent.cs" />
     <Compile Include="IoT\IoTSet.cs" />
     <Compile Include="IoT\IoTSetComponent.cs" />
-    <Compile Include="Notification\Notification.cs" />
     <Compile Include="Printer\Printer.cs" />
     <Compile Include="Printer\UserPrinter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

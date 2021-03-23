@@ -7,11 +7,6 @@ using System.Threading.Tasks;
 
 namespace AMS.Logic.Services
 {
-    public interface IUserBuilderDirector
-    {
-        void BuildUser(int userTypeId);
-    }
-
     public class UserBuilderDirector
     {
         private IUserBuilder _userBuilder;

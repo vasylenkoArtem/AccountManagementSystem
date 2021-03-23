@@ -75,9 +75,8 @@ namespace AMS.Logic.Services
         public void BuildPrinters()
         {
             //TODO: get with repo
-
             var ids = BuilderParams.PrinterIds;
-            var printersToUse = new List<Domain.Printer.UserPrinter>();
+            var printersToUse = new List<DomainUserPrinter>();
 
             var plasticTypes = GetAllowedPlasticTypes();
             var plasticQuantity = GetAllowedPlasticQuantity();
@@ -90,7 +89,7 @@ namespace AMS.Logic.Services
 
         public void BuildComputers()
         {
-            //TODO: get with repo, get by id 
+            //TODO: get with repo
             var id = BuilderParams.ComputerId;
             var computerToUse = new Computer();
 
@@ -119,6 +118,9 @@ namespace AMS.Logic.Services
             }
         }
 
+        public User GetResult() => this.User;
+
+
         private List<IoTComponent> GetIoTComponentsForSet()
         {
             /*
@@ -129,7 +131,7 @@ namespace AMS.Logic.Services
               Get base list of components (sensors, wires..)
 
              for guest:
-                Get top(1) arduino uno iotComponents
+                Get 1 arduino uno iotComponents
                 Get minimal list of components (sensors, wires..)
              */
 
@@ -151,8 +153,6 @@ namespace AMS.Logic.Services
             }
 
         }
-
-        public User GetResult() => this.User;
 
         private List<string> GetAllowedPlasticTypes()
         {

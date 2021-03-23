@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AMS.Domain.User;
+using AMS.Logic.Enums;
 
 namespace AMS.Logic.Services
 {
@@ -23,20 +24,24 @@ namespace AMS.Logic.Services
 
         public User AddNewUser(UserBuilderParams userBuilderParams)
         {
-            _notificationService.SendTextMessage(1, "AAAA");
+            
 
             var userBuilder = new UserBuilder(userBuilderParams);
-            var userBuilderDirector = new UserBuilderDirector
-            {
-                Builder = userBuilder
-            };
+            var userBuilderDirector = new UserBuilderDirector();
+            userBuilderDirector.Builder = userBuilder;
 
             userBuilderDirector.BuildUser(userBuilderParams.UserTypeId);
+
             var user = userBuilder.GetResult();
 
-            //save user
+            //_save changes with repository 
 
-            
+            //get subscribed users and messengers
+            var subscribedUserId = 2;
+            var messengerId = (int)MessengerType.Telegram;
+
+            _notificationService.SendTextMessage(subscribedUserId, messengerId, $"New User with Id {user.Id} added");
+
             return user;
         }
     }

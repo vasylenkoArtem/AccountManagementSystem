@@ -12,5 +12,6 @@ namespace SmartLab.Logic.Queries.Notification
         public string MessageText { get; set; }
         public string AttachmentPath { get; set; }
         public string AttachmentName { get; set; }
+        public int UserId { get; set; }
     }
 }

@@ -12,17 +12,17 @@ namespace AMS.Logic.Services
         public EmailNotificationProvider(IMongoDbConnector mongoDbConnector) : base(mongoDbConnector)
         { }
 
-        public override void SendMessage(string text)
+        public override void SendMessage(int userId, string text)
         {
             throw new NotImplementedException();
         }
 
-        public override void SendMessage(string attachmentName, byte[] attachment)
+        public override void SendMessage(int userId, string attachmentName, byte[] attachment)
         {
             throw new NotImplementedException();
         }
 
-        public override void SendMessage(string text, string attachmentName, byte[] attachment)
+        public override void SendMessage(int userId, string text, string attachmentName, byte[] attachment)
         {
             throw new NotImplementedException();
         }

@@ -17,13 +17,13 @@ namespace AMS.Logic.Services
             _mongoDbConnector = mongoDbConnector;
         }
 
-        public abstract void SendMessage(string text);
+        public abstract void SendMessage(int userId, string text);
 
-        public abstract void SendMessage(string attachmentName, byte[] attachment);
+        public abstract void SendMessage(int userId, string attachmentName, byte[] attachment);
 
-        public abstract void SendMessage(string text, string attachmentName, byte[] attachment);
+        public abstract void SendMessage(int userId, string text, string attachmentName, byte[] attachment);
 
-        public void SaveMessage(string text = null, string attachmentName = null, byte[] attachment = null)
+        public void SaveMessage(int userId, string text = null, string attachmentName = null, byte[] attachment = null)
         {
             //save file to the server
 
@@ -31,7 +31,8 @@ namespace AMS.Logic.Services
             var notification = new Notification
             {
                 MessageText = text,
-                AttachmentName = attachmentName
+                AttachmentName = attachmentName,
+                UserId = userId
             };
 
             _mongoDbConnector.Add(new List<Notification> { notification });
