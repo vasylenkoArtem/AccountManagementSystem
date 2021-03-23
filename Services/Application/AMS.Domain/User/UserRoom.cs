@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AMS.Domain
+namespace AMS.Domain.User
 {
     public class UserRoom
     {

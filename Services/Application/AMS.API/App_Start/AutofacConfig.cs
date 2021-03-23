@@ -10,15 +10,17 @@ using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using AMS.Helpers;
-using SmartLab.Logic.Queries.UserRoom;
-using SmartLab.Logic.Services.UserRoom;
-using SmartLab.Logic.Queries;
+using AMS.Logic.Queries.UserRoom;
+using AMS.Logic.Services;
+using AMS.Logic.Queries;
+using AMS.Database.MongoDb;
 
 namespace AMS.API
 {
     public class AutofacConfig
     {
         private static readonly string _queriesConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        private static readonly string _mongodbConnectionString = ConfigurationManager.AppSettings["MongoDbConnection"];
 
         public static void Configure()
         {
@@ -40,6 +42,9 @@ namespace AMS.API
             builder.Register(_ => new ConnectionStringProvider(_queriesConnectionString))
                .As<IConnectionStringProvider>();
 
+            builder.Register(_ => new MongoDbConnector(_mongodbConnectionString))
+              .As<IMongoDbConnector>();
+
             builder.RegisterType<UserRoomQueries>()
                  .As<IUserRoomQueries>()
                  .InstancePerRequest();
@@ -51,6 +56,20 @@ namespace AMS.API
             builder.RegisterType<UserQueries>()
                 .As<IUserQueries>()
                 .InstancePerRequest();
+
+            builder.RegisterType<NotificationService>()
+                .As<INotificationService>()
+                .InstancePerRequest();
+
+            builder.RegisterType<NotificationContext>()
+                .As<INotificationContext>()
+                .InstancePerRequest();
+
+            builder.RegisterType<UserService>()
+                .As<IUserService>()
+                .InstancePerRequest();
+
+            
 
 
         }
