@@ -28,10 +28,7 @@ namespace AMS.Domain.User
         public int UserTypeId { get; set; }
 
 
-
-        //TODO: Add index via fluent migration
-
-        //[Index("IdentityLockUserId_Index")]
+        [Index("IdentityLockUserId_Index")]
         /// <summary>
         /// AspNetUser id that identifies RFID card 
         /// </summary>

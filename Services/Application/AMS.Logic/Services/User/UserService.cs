@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AMS.Database.MongoDb;
 using AMS.Domain.User;
 using AMS.Logic.Enums;
+using AMS.Logic.Queries;
 
 namespace AMS.Logic.Services
 {
@@ -16,15 +18,23 @@ namespace AMS.Logic.Services
     public class UserService : IUserService
     {
         private readonly INotificationService _notificationService;
-        
-        public UserService(INotificationService notificationService)
+        private readonly IMongoDbConnector _mongoDbConnector;
+
+        public UserService(INotificationService notificationService, IMongoDbConnector mongoDbConnector)
         {
             _notificationService = notificationService;
+            _mongoDbConnector = mongoDbConnector;
         }
 
         public User AddNewUser(UserBuilderParams userBuilderParams)
         {
-            
+
+            //var user = new UserBaseData();
+            //var users = new List<UserBaseData>() { }
+
+            //_mongoDbConnector.Add<UserBaseData>(data);
+
+
 
             var userBuilder = new UserBuilder(userBuilderParams);
             var userBuilderDirector = new UserBuilderDirector();

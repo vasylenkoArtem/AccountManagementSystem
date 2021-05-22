@@ -36,7 +36,6 @@ namespace AMS.Logic.Services
             };
 
             _mongoDbConnector.Add(new List<Notification> { notification });
-
         }
     }
 }

@@ -9,8 +9,8 @@ using System.Web.Http;
 
 namespace AMS.API.Controllers
 {
-    //TODO: Configure and check after identity will be connected
-    //[Authorize(Roles = "LaboratoryWorker")]
+
+    [Authorize(Roles = "LaboratoryWorker")]
     [RoutePrefix("lock")]
     public class LockController : ApiController
     {

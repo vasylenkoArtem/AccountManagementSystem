@@ -11,8 +11,7 @@ using AMS.API.Exstensions;
 
 namespace AMS.API.Controllers
 {
-    //TODO: Configure and check after identity will be connected
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     [RoutePrefix("users")]
     public class UsersController : ApiController
     {
@@ -34,16 +33,36 @@ namespace AMS.API.Controllers
             return Ok(users);
         }
 
+        [Route("{userId}")]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetUserDetails(int userId)
+        {
+            return null;
+        }
+
         [HttpPost]
         [Route("")]
         public async Task<IHttpActionResult> AddUser()
         {
-            var requestParams = await Request.Content.GetFromBodyAsync<UserBuilderParams>();
+            var requestParams = new UserBuilderParams();
 
             var user = _userService.AddNewUser(requestParams);
 
             return Ok(user);
         }
 
+        [Route("history")]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetUsersHistory()
+        {
+            return null;
+        }
+
+        [Route("{userId}")]
+        [HttpDelete]
+        public async Task<IHttpActionResult> DeleteUser(int userId)
+        {
+            return null;
+        }
     }
 }

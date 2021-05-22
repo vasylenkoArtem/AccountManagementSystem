@@ -120,11 +120,14 @@
     <Compile Include="Queries\UserRoom\UserRoomQueries.cs" />
     <Compile Include="Queries\User\UserQueries.cs" />
     <Compile Include="Queries\User\UserViewModels.cs" />
+    <Compile Include="Services\Computer\ComputerService.cs" />
+    <Compile Include="Services\IoT\IoTService.cs" />
     <Compile Include="Services\Notification\Providers\EmailNotificationProvider.cs" />
     <Compile Include="Services\Notification\Providers\NotificationProvider.cs" />
     <Compile Include="Services\Notification\Providers\NotificationContext.cs" />
     <Compile Include="Services\Notification\NotificationService.cs" />
     <Compile Include="Services\Notification\Providers\TelegramNotificationProvider.cs" />
+    <Compile Include="Services\Room\RoomService.cs" />
     <Compile Include="Services\User\UserBuilder.cs" />
     <Compile Include="Services\User\UserBuilderDirector.cs" />
     <Compile Include="Services\User\UserRoomService.cs" />
