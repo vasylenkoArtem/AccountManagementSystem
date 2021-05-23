@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AMS.Domain.Computer;
+using AMS.Domain.Printer;
+using SmartLab.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,13 +29,22 @@ namespace AMS.Domain
         public int UserTypeId { get; set; }
 
 
-
-        //TODO: Add index via fluent migration
-
         //[Index("IdentityLockUserId_Index")]
         /// <summary>
         /// AspNetUser id that identifies RFID card 
         /// </summary>
         public string IdentityLockUserId { get; set; }
+
+        public virtual List<UserPrinter> UserPrinters { get; set; }
+
+        public virtual List<UserComputer> Computers { get; set; }
+        public virtual List<UserMessenger> Messengers { get; set; }
+
+
+        public User()
+        {
+            Computers = new List<UserComputer>();
+            UserPrinters = new List<UserPrinter>();
+        }
     }
 }
