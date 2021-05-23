@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AMS.API.Exstensions;
 using System.Web.Http.Cors;
+using Newtonsoft.Json;
 
 namespace AMS.API.Controllers
 {
@@ -20,9 +21,10 @@ namespace AMS.API.Controllers
         private readonly IUserQueries _userQueries;
         private readonly IUserService _userService; //баг с DI
 
-        public UsersController(IUserQueries userQueries)
+        public UsersController(IUserQueries userQueries, IUserService userService)
         {
             _userQueries = userQueries;
+            _userService = userService;
         }
 
         [Route("")]
@@ -45,7 +47,9 @@ namespace AMS.API.Controllers
         [Route("")]
         public async Task<IHttpActionResult> AddUser()
         {
-            var requestParams = new UserBuilderParams();
+            var requestContent = Request.Content;
+            var jsonContent = await requestContent.ReadAsStringAsync();
+            var requestParams = JsonConvert.DeserializeObject<UserBuilderParams>(jsonContent);
 
             var user = await _userService.AddNewUser(requestParams);
 

@@ -53,8 +53,30 @@ namespace AMS.Logic.Queries
                         ,[User].[UserTypeId]
                         ,[User].[IdentityLockUserId]");
 
+                //TODO: Refactor user type
+
+                result.ToList().ForEach(u => u.UserType = GetUserType(u.UserTypeId));
+
                 return result;
             }
+        }
+
+        private string GetUserType(int userTypeId)
+        {
+
+            if (userTypeId == 1)
+            {
+                return "Guest";
+            }
+            else if (userTypeId == 2)
+            {
+                return "Student";
+            }
+            else if (userTypeId == 3)
+            {
+                return "Engineer";
+            }
+            return "";
         }
     }
 }

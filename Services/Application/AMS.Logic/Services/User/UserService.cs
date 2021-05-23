@@ -44,7 +44,7 @@ namespace AMS.Logic.Services
             var savedUser = _userRepository.AddUser(user);
             await _userRepository.UnitOfWork.SaveEntitiesAsync();
 
-            _notificationService.SendTextMessage((int)ActionType.ManageUsers, $"New User with Id {user.Id} added");
+            await _notificationService.SendTextMessage((int)ActionType.ManageUsers, $"New User with Id {user.Id} added");
 
             return savedUser;
         }
