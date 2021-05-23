@@ -2,12 +2,8 @@
 using Autofac.Integration.WebApi;
 using AMS.Database;
 using AMS.Domain;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Reflection;
-using System.Web;
 using System.Web.Http;
 using AMS.Helpers;
 using AMS.Logic.Queries.UserRoom;

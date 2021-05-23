@@ -1,6 +1,6 @@
 ﻿using AMS.Domain.Computer;
 using AMS.Domain.IoT;
-using AMS.Domain.User;
+using AMS.Domain;
 using AMS.Logic.Constants;
 using AMS.Logic.Enums;
 using System;

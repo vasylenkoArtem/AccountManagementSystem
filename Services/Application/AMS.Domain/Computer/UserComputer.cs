@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DomainUser = AMS.Domain.User.User;
+using DomainUser = AMS.Domain.User;
 
 namespace AMS.Domain.Computer
 {
