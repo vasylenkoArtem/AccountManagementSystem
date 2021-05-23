@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AMS.Logic.Enums;
+using AMS.Logic.Queries;
+using SmartLab.Logic.Queries.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,42 +11,64 @@ namespace AMS.Logic.Services
 {
     public interface INotificationService
     {
-        void SendTextMessage(int userId, int messengerTypeId, string text);
+        Task SendTextMessage(int actionTypeId, string text);
 
-        void SendMessageWithAttachment(int userId, int messengerTypeId, string attachmentName, byte[] attachment);
+        Task SendMessageWithAttachment(int actionTypeId, string attachmentName, byte[] attachment);
 
-        void SendMessageWithTextAndAttachment(int userId, int messengerTypeId, string text, string attachmentName, byte[] attachment);
+        Task SendMessageWithTextAndAttachment(int actionTypeId, string text, string attachmentName, byte[] attachment);
     }
 
     public class NotificationService : INotificationService
     {
         private readonly INotificationContext _notificationContext;
+        private readonly INotificationQueries _notificationQueries;
 
-        public NotificationService(INotificationContext notificationContext)
+        public NotificationService(INotificationContext notificationContext, INotificationQueries notificationQueries)
         {
             _notificationContext = notificationContext;
+            _notificationQueries = notificationQueries;
         }
 
-        public void SendTextMessage(int userId, int messengerTypeId, string text)
+        public async Task SendTextMessage(int actionTypeId, string text)
         {
-            var notificationProvider = _notificationContext.ResolveNotificationMessenger(messengerTypeId);
-            
-            notificationProvider.SendMessage(userId, text);
-            notificationProvider.SaveMessage(userId, text: text);
+            var subscriptions = await _notificationQueries.GetUserNotificationSubscriptions(actionTypeId);
+
+            // Notify all subscribed members about the action
+            foreach (var subscription in subscriptions)
+            {
+                var notificationProvider = _notificationContext.ResolveNotificationMessenger(subscription.MessengerTypeId);
+
+                notificationProvider.SendMessage(subscription.UserIndetifier, text);
+                notificationProvider.SaveMessage(subscription.UserIndetifier, text: text);
+            }
         }
 
-        public void SendMessageWithAttachment(int userId, int messengerTypeId, string attachmentName, byte[] attachment)
+        public async Task SendMessageWithAttachment(int actionTypeId, string attachmentName, byte[] attachment)
         {
-            var notificationProvider = _notificationContext.ResolveNotificationMessenger(messengerTypeId);
-            notificationProvider.SendMessage(userId, attachmentName, attachment);
-            notificationProvider.SaveMessage(userId, attachment: attachment, attachmentName : attachmentName);
+            var subscriptions = await _notificationQueries.GetUserNotificationSubscriptions(actionTypeId);
+
+            // Notify all subscribed members about the action
+            foreach (var subscription in subscriptions)
+            {
+                var notificationProvider = _notificationContext.ResolveNotificationMessenger(subscription.MessengerTypeId);
+
+                notificationProvider.SendMessage(subscription.UserIndetifier, attachmentName, attachment);
+                notificationProvider.SaveMessage(subscription.UserIndetifier, attachment: attachment, attachmentName: attachmentName);
+            }
         }
 
-        public void SendMessageWithTextAndAttachment(int userId, int messengerTypeId, string text, string attachmentName, byte[] attachment)
+        public async Task SendMessageWithTextAndAttachment(int actionTypeId, string text, string attachmentName, byte[] attachment)
         {
-            var notificationProvider = _notificationContext.ResolveNotificationMessenger(messengerTypeId);
-            notificationProvider.SendMessage(userId, text, attachmentName, attachment);
-            notificationProvider.SaveMessage(userId, text, attachmentName, attachment);
+            var subscriptions = await _notificationQueries.GetUserNotificationSubscriptions(actionTypeId);
+
+            // Notify all subscribed members about the action
+            foreach (var subscription in subscriptions)
+            {
+                var notificationProvider = _notificationContext.ResolveNotificationMessenger(subscription.MessengerTypeId);
+
+                notificationProvider.SendMessage(subscription.UserIndetifier, attachmentName, attachment);
+                notificationProvider.SaveMessage(subscription.UserIndetifier, attachment: attachment, attachmentName: attachmentName, text: text);
+            }
         }
     }
 }

@@ -17,21 +17,23 @@ namespace AMS.Logic.Services
             _mongoDbConnector = mongoDbConnector;
         }
 
-        public abstract void SendMessage(int userId, string text);
+        public abstract void SendMessage(string userId, string text);
 
-        public abstract void SendMessage(int userId, string attachmentName, byte[] attachment);
+        public abstract void SendMessage(string userId, string attachmentName, byte[] attachment);
 
-        public abstract void SendMessage(int userId, string text, string attachmentName, byte[] attachment);
+        public abstract void SendMessage(string userId, string text, string attachmentName, byte[] attachment);
 
-        public void SaveMessage(int userId, string text = null, string attachmentName = null, byte[] attachment = null)
+        public void SaveMessage(string userId, string text = null, string attachmentName = null, byte[] attachment = null)
         {
             //save file to the server
+            var attachmentPath = "mock";
 
             //save info to the mongodb
             var notification = new Notification
             {
                 MessageText = text,
                 AttachmentName = attachmentName,
+                AttachmentPath = attachmentPath,
                 UserId = userId
             };
 

@@ -1,5 +1,6 @@
 ﻿using AMS.Domain.Computer;
 using AMS.Domain.Printer;
+using SmartLab.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AMS.Domain.User
+namespace AMS.Domain
 {
     public class User
     {
@@ -28,7 +29,7 @@ namespace AMS.Domain.User
         public int UserTypeId { get; set; }
 
 
-        [Index("IdentityLockUserId_Index")]
+        //[Index("IdentityLockUserId_Index")]
         /// <summary>
         /// AspNetUser id that identifies RFID card 
         /// </summary>
@@ -37,6 +38,7 @@ namespace AMS.Domain.User
         public virtual List<UserPrinter> UserPrinters { get; set; }
 
         public virtual List<UserComputer> Computers { get; set; }
+        public virtual List<UserMessenger> Messengers { get; set; }
 
 
         public User()

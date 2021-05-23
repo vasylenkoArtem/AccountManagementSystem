@@ -4,6 +4,8 @@ using AMS.Domain.Computer;
 using AMS.Domain.IoT;
 using AMS.Domain.Printer;
 using AMS.Domain.User;
+using SmartLab.Domain;
+using SmartLab.Domain.Notification;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -28,7 +30,6 @@ namespace AMS.Database
 
         }
 
-        public DbSet<User> Users { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<UserRoom> UserRooms { get; set; }
         public DbSet<Printer> Printers { get; set; }
@@ -38,6 +39,8 @@ namespace AMS.Database
         public DbSet<IoTSet> IoTSets { get; set; }
         public DbSet<IoTComponent> IoTComponents { get; set; }
         public DbSet<IoTSetComponent> IoTSetComponents { get; set; }
+        public DbSet<NotificationSubscription> NotificationSubscriptions { get; set; }
+        public DbSet<UserMessenger> UserMessengers { get; set; }
 
 
         public IDbContextTransactionProvider BeginTransaction()

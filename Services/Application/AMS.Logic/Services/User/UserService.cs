@@ -4,55 +4,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AMS.Database.MongoDb;
-using AMS.Domain.User;
+using AMS.Domain;
 using AMS.Logic.Enums;
 using AMS.Logic.Queries;
+using TeleSharp.TL;
+using TLSharp.Core;
 
 namespace AMS.Logic.Services
 {
     public interface IUserService
     {
-        User AddNewUser(UserBuilderParams userBuilderParams);
+        Task<User> AddNewUser(UserBuilderParams userBuilderParams);
     }
 
     public class UserService : IUserService
     {
         private readonly INotificationService _notificationService;
         private readonly IMongoDbConnector _mongoDbConnector;
+        private readonly IUserRepository _userRepository;
 
-        public UserService(INotificationService notificationService, IMongoDbConnector mongoDbConnector)
+        public UserService(INotificationService notificationService, IMongoDbConnector mongoDbConnector, IUserRepository userRepository)
         {
             _notificationService = notificationService;
             _mongoDbConnector = mongoDbConnector;
+            _userRepository = userRepository;
         }
 
-        public User AddNewUser(UserBuilderParams userBuilderParams)
+        public async Task<User> AddNewUser(UserBuilderParams userBuilderParams)
         {
-
-            //var user = new UserBaseData();
-            //var users = new List<UserBaseData>() { }
-
-            //_mongoDbConnector.Add<UserBaseData>(data);
-
-
-
             var userBuilder = new UserBuilder(userBuilderParams);
-            var userBuilderDirector = new UserBuilderDirector();
-            userBuilderDirector.Builder = userBuilder;
+            var userBuilderDirector = new UserBuilderDirector
+            {
+                Builder = userBuilder
+            };
 
             userBuilderDirector.BuildUser(userBuilderParams.UserTypeId);
-
             var user = userBuilder.GetResult();
 
-            //_save changes with repository 
+            var savedUser = _userRepository.AddUser(user);
+            await _userRepository.UnitOfWork.SaveEntitiesAsync();
 
-            //get subscribed users and messengers
-            var subscribedUserId = 2;
-            var messengerId = (int)MessengerType.Telegram;
+            _notificationService.SendTextMessage((int)ActionType.ManageUsers, $"New User with Id {user.Id} added");
 
-            _notificationService.SendTextMessage(subscribedUserId, messengerId, $"New User with Id {user.Id} added");
-
-            return user;
+            return savedUser;
         }
     }
 }

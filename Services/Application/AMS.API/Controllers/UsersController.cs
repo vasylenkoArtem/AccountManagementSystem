@@ -11,7 +11,7 @@ using AMS.API.Exstensions;
 
 namespace AMS.API.Controllers
 {
-    [Authorize(Roles = "Admin")]
+   
     [RoutePrefix("users")]
     public class UsersController : ApiController
     {
@@ -24,8 +24,8 @@ namespace AMS.API.Controllers
             _userService = userService;
         }
 
-        [HttpGet]
         [Route("")]
+        [HttpGet]
         public async Task<IHttpActionResult> GetUsers()
         {
             var users = await _userQueries.GetUsers();
@@ -46,7 +46,7 @@ namespace AMS.API.Controllers
         {
             var requestParams = new UserBuilderParams();
 
-            var user = _userService.AddNewUser(requestParams);
+            var user = await _userService.AddNewUser(requestParams);
 
             return Ok(user);
         }

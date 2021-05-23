@@ -14,6 +14,8 @@ using AMS.Logic.Queries.UserRoom;
 using AMS.Logic.Services;
 using AMS.Logic.Queries;
 using AMS.Database.MongoDb;
+using SmartLab.Logic.Services.Notification.Providers;
+using AMS.Database.Repositories;
 
 namespace AMS.API
 {
@@ -21,6 +23,8 @@ namespace AMS.API
     {
         private static readonly string _queriesConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         private static readonly string _mongodbConnectionString = ConfigurationManager.AppSettings["MongoDbConnection"];
+        private static int _apiId => int.Parse(ConfigurationManager.AppSettings["TelegramApiId"]);
+        private static readonly string _apiHash = ConfigurationManager.AppSettings["TelegramApiHash"];
 
         public static void Configure()
         {
@@ -69,7 +73,18 @@ namespace AMS.API
                 .As<IUserService>()
                 .InstancePerRequest();
 
-            
+            builder.Register(_ => new TelegramConnectionStringProvider(_apiId, _apiHash))
+               .As<ITelegramConnectionStringProvider>()
+               .InstancePerRequest();
+
+            builder.RegisterType<NotificationQueries>()
+                .As<INotificationQueries>()
+                .InstancePerRequest();
+
+            builder.RegisterType<UserRepository>()
+                .As<IUserRepository>()
+                .InstancePerRequest();
+
 
 
         }
