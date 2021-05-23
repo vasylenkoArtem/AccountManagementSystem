@@ -1,4 +1,4 @@
-﻿using AMS.Domain.User;
+﻿using AMS.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

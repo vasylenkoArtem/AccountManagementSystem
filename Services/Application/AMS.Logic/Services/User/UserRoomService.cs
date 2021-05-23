@@ -1,11 +1,11 @@
-﻿using SmartLab.Logic.Queries.UserRoom;
+﻿using AMS.Logic.Queries.UserRoom;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartLab.Logic.Services.UserRoom
+namespace AMS.Logic.Services
 {
     public interface IUserRoomService
     {

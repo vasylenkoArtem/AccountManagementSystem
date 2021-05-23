@@ -3,7 +3,7 @@ using AMS.Domain.Base;
 using AMS.Domain.Computer;
 using AMS.Domain.IoT;
 using AMS.Domain.Printer;
-using AMS.Domain.User;
+using AMS.Domain;
 using SmartLab.Domain;
 using SmartLab.Domain.Notification;
 using System;

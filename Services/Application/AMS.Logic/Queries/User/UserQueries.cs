@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartLab.Logic.Queries
+namespace AMS.Logic.Queries
 {
     public interface IUserQueries
     {
