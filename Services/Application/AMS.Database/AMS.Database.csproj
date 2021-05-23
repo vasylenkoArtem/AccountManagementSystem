@@ -126,6 +126,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAccountManagementSystemContext.cs" />
     <Compile Include="Migrations\202102281618092_InitilaScheme.cs" />
     <Compile Include="Migrations\202102281618092_InitilaScheme.Designer.cs">
       <DependentUpon>202102281618092_InitilaScheme.cs</DependentUpon>
