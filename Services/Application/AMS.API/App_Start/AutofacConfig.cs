@@ -81,8 +81,6 @@ namespace AMS.API
                 .As<IUserRepository>()
                 .InstancePerRequest();
 
-
-
         }
     }
 }

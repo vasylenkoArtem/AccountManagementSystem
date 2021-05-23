@@ -8,20 +8,21 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AMS.API.Exstensions;
+using System.Web.Http.Cors;
 
 namespace AMS.API.Controllers
 {
    
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("users")]
     public class UsersController : ApiController
     {
         private readonly IUserQueries _userQueries;
-        private readonly IUserService _userService;
+        private readonly IUserService _userService; //баг с DI
 
-        public UsersController(IUserQueries userQueries, IUserService userService)
+        public UsersController(IUserQueries userQueries)
         {
             _userQueries = userQueries;
-            _userService = userService;
         }
 
         [Route("")]

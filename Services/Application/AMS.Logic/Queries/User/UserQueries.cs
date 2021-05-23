@@ -41,10 +41,10 @@ namespace AMS.Logic.Queries
                     	  ,STRING_AGG(Room.Number, ', ') RoomNumbersString
 
                     FROM [dbo].[User]
-                    JOIN UserRoom ON UserRoom.UserId = [User].Id 
-                    JOIN Room ON Room.Id = UserRoom.RoomId
+                    LEFT JOIN UserRoom ON UserRoom.UserId = [User].Id 
+                    LEFT JOIN Room ON Room.Id = UserRoom.RoomId
 
-                    WHERE UserRoom.IsAvaliable = 1
+                    WHERE UserRoom.IsAvaliable = 1 OR UserRoom.Id IS NULL
 
                     GROUP BY [User].[Id]
                         ,[User].[FirstName]
