@@ -26,6 +26,7 @@ interface OwnStateProps {
 interface StateFromProps {
     users: User[];
     isLoadingTable: boolean;
+    isSaved: boolean;
 }
 
 interface DispatchFromProps {
@@ -53,6 +54,12 @@ class UsersList extends React.Component<StateFromProps & DispatchFromProps & Pas
 
     componentDidMount = () => {
         this.props.getUsers();
+    }
+
+    componentDidUpdate(prevProps: StateFromProps & PassedProps, prevState: OwnStateProps) {
+        if (this.props.isSaved && prevState.modalVisible) {
+            this.setState({ modalVisible: false });
+        }
     }
 
     getUserType = (userTypeId: number) => {
@@ -156,7 +163,8 @@ class UsersList extends React.Component<StateFromProps & DispatchFromProps & Pas
 const mapStateToProps = (state: AppState): StateFromProps => {
     return {
         users: state.user.users,
-        isLoadingTable: state.user.isLoadingTable
+        isLoadingTable: state.user.isLoadingTable,
+        isSaved: state.user.isSaved
 
     };
 };

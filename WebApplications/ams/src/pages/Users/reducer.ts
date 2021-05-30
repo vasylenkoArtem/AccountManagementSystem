@@ -19,16 +19,14 @@ export type UserState = {
     users: User[];
     isLoadingTable: boolean;
     isLoading: boolean;
+    isSaved: boolean;
 }
 
 const initialState = {
     users: [],
     isLoadingTable: false,
-    isLoading: false
-}
-
-const updateUsersWithUser = (state: UserState, user: User) => {
-    return state.users.push(user);
+    isLoading: false,
+    isSaved: false
 }
 
 export const reducer = (state: UserState = initialState, action: any) => {
@@ -38,9 +36,9 @@ export const reducer = (state: UserState = initialState, action: any) => {
         case GET_USERS.SUCCESS:
             return updateObject(state, { users: action.users, isLoadingTable: false });
         case ADD_USER.REQUEST:
-            return updateObject(state, { isLoading: true });
+            return updateObject(state, { isSaved: false });
         case ADD_USER.SUCCESS:
-            return updateObject(state, { users: updateUsersWithUser(state, action.user), isLoading: false });
+            return updateObject(state, { users: state.users.concat(action.user), isSaved: true });
 
 
         default:

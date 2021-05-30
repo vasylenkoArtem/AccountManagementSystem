@@ -58,6 +58,7 @@ namespace AMS.Database
             }
             catch (Exception e)
             {
+                return false;
                 //logger
             }
 

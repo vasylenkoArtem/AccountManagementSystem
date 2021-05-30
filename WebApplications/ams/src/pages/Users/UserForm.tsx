@@ -130,6 +130,7 @@ class UserForm extends React.Component<PassedProps>{
                     }]}>
 
                     <Input
+                        style={{ width: 384, marginLeft: 30 }}
                         name="Email"
                         placeholder={"Email"}
                         onChange={(e: any) => {
@@ -147,6 +148,7 @@ class UserForm extends React.Component<PassedProps>{
                     }]}>
 
                     <Select
+                        style={{ width: 384, marginLeft: 5 }}
                         showSearch={true}
                         placeholder={"User type"}
                         optionFilterProp="children"

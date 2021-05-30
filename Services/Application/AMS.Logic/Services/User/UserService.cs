@@ -42,7 +42,11 @@ namespace AMS.Logic.Services
             var user = userBuilder.GetResult();
 
             var savedUser = _userRepository.AddUser(user);
-            await _userRepository.UnitOfWork.SaveEntitiesAsync();
+
+            if (!await _userRepository.UnitOfWork.SaveEntitiesAsync())
+            {
+                throw new Exception("Something went wrong during adding new user");
+            };
 
             await _notificationService.SendTextMessage((int)ActionType.ManageUsers, $"New User with Id {user.Id} added");
 

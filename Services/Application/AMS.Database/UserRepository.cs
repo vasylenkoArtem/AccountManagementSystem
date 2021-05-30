@@ -27,7 +27,7 @@ namespace AMS.Database.Repositories
 
         public User AddUser(User user)
         {
-            throw new NotImplementedException();
+            return _context.Users.Add(user);
         }
 
         public async Task<List<User>> GetUsersAsync()
