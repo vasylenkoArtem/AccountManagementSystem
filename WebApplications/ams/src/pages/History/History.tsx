@@ -101,7 +101,10 @@ class HistoryList extends React.Component<StateFromProps & DispatchFromProps & P
                         switch (columnKey) {
 
                             case 'actions':
-
+                                if(!(row.Properties?.length > 0)){
+                                    return null;
+                                }
+                                
                                 return <Button
                                     size="small"
                                     className="tr-action-item"
@@ -111,9 +114,10 @@ class HistoryList extends React.Component<StateFromProps & DispatchFromProps & P
                         }
 
                         if (element.IsDate || element.IsDateTime) {
-                            formatDateString(text, element.IsDateTime);
+                            return formatDateString(text, element.IsDateTime);
                         }
 
+                       
                         return text;
                     }
                 });
@@ -124,9 +128,9 @@ class HistoryList extends React.Component<StateFromProps & DispatchFromProps & P
         return (<>
             <MainLayout>
 
-                <Button onClick={this.showAddUsertModal} type="primary" icon={<PlusOutlined />}>
+                {/* <Button onClick={this.showAddUsertModal} type="primary" icon={<PlusOutlined />}>
                     Add new
-                </Button>
+                </Button> */}
 
                 {/* <UserContainer
                     onCancel={() => this.setState({ modalVisible: false })}
