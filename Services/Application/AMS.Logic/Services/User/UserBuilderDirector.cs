@@ -22,6 +22,8 @@ namespace AMS.Logic.Services
             _userBuilder.CreateUserObject();
             _userBuilder.BuildPersonalInfo();
 
+            _userBuilder.BuildRooms();
+
             //TODO: Refactor and integrate builder
 
             //switch (userTypeId)

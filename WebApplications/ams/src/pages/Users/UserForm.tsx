@@ -99,6 +99,7 @@ class UserForm extends React.Component<PassedProps>{
                 ref={this.formRef}
                 onFinish={(e: any) => this.props.handleSubmit()}
                 onFinishFailed={this.onFinishFailed}
+                
 
             >
 

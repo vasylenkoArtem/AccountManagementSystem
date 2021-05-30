@@ -9,6 +9,11 @@ namespace AMS.Domain
 {
     public class UserRoom
     {
+        public UserRoom(bool isAvailable = true)
+        {
+            IsAvaliable = isAvailable;
+        }
+
         [Key]
         public int Id { get; private set; }
 

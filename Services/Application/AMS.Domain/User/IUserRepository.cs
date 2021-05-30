@@ -15,5 +15,6 @@ namespace AMS.Domain
 
         User AddUser(User user);
 
+
     }
 }

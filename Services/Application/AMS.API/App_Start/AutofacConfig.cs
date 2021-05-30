@@ -86,6 +86,10 @@ namespace AMS.API
                 .As<IRoomQueries>()
                 .InstancePerRequest();
 
+            builder.RegisterType<RoomRepository>()
+               .As<IRoomRepository>()
+               .InstancePerRequest();
+
 
 
         }

@@ -43,8 +43,9 @@ namespace AMS.API.Controllers
             return null;
         }
 
-        [HttpPost]
+       
         [Route("")]
+        [HttpPost]
         public async Task<IHttpActionResult> AddUser()
         {
             var requestContent = Request.Content;

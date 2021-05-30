@@ -8,11 +8,11 @@ using DomainRoom = AMS.Domain.Room;
 
 namespace AMS.Domain
 {
-    public interface IRoomRepository
+    public interface IRoomRepository : IRepository
     {
-        DomainRoom GetAsync(int roomId);
+        Task<DomainRoom> GetAsync(int roomId);
 
-        List<DomainRoom> GetRooms();
+        Task<List<DomainRoom>> GetRoomsAsync(List<int> ids = null);
 
         DomainRoom AddRoom(DomainRoom user);
 

@@ -22,17 +22,19 @@ namespace AMS.Logic.Services
         private readonly INotificationService _notificationService;
         private readonly IMongoDbConnector _mongoDbConnector;
         private readonly IUserRepository _userRepository;
+        private readonly IRoomRepository _roomRepository;
 
-        public UserService(INotificationService notificationService, IMongoDbConnector mongoDbConnector, IUserRepository userRepository)
+        public UserService(INotificationService notificationService, IMongoDbConnector mongoDbConnector, IUserRepository userRepository, IRoomRepository roomRepository)
         {
             _notificationService = notificationService;
             _mongoDbConnector = mongoDbConnector;
             _userRepository = userRepository;
+            _roomRepository = roomRepository;
         }
 
         public async Task<User> AddNewUser(UserBuilderParams userBuilderParams)
         {
-            var userBuilder = new UserBuilder(userBuilderParams);
+            var userBuilder = new UserBuilder(userBuilderParams, _roomRepository);
             var userBuilderDirector = new UserBuilderDirector
             {
                 Builder = userBuilder

@@ -19,6 +19,8 @@ namespace AMS.Logic.Services
 
         void BuildPersonalInfo();
 
+        void BuildRooms();
+
         void BuildPrinters();
 
         void BuildComputers();
@@ -45,18 +47,23 @@ namespace AMS.Logic.Services
         public int UserId { get; set; }
         public DateTime? ValidFrom { get; set; }
         public DateTime? ValidTo { get; set; }
+        public List<int> RoomNumbers { get; set; }
     }
 
 
     public class UserBuilder : IUserBuilder
     {
+        private readonly IRoomRepository _roomRepository;
+
         private User User { get; set; }
 
         private UserBuilderParams BuilderParams { get; set; }
 
-        public UserBuilder(UserBuilderParams builderParams)
+        public UserBuilder(UserBuilderParams builderParams, IRoomRepository roomRepository)
         {
             BuilderParams = builderParams;
+
+            _roomRepository = roomRepository;
         }
 
         public void CreateUserObject()
@@ -200,6 +207,28 @@ namespace AMS.Logic.Services
                 default:
                     return (null, null);
             }
+        }
+
+        public async void BuildRooms()
+        {
+            var rooms = await _roomRepository.GetRoomsAsync(BuilderParams.RoomNumbers);
+
+            foreach (var room in rooms)
+            {
+                var userRoom = new UserRoom
+                {
+                    Room = room
+                };
+
+                User.UserRooms.Add(userRoom);
+            }
+
+            if (!await _roomRepository.UnitOfWork.SaveEntitiesAsync())
+            {
+                throw new Exception("Somethinh went wrong during add roms to user");
+            }
+
+
         }
     }
 }

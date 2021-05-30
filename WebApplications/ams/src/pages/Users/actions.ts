@@ -81,7 +81,8 @@ export const addUser = (user : User) => {
             AllowedPlasticTypes: ["ABS"],
             AllowedPlasticQuantity: 10,
             UserId: 0,
-            RFIDKey : user.RFIDKey
+            RFIDKey : user.RFIDKey,
+            RoomNumbers : user.RoomNumbers
         }
 
 

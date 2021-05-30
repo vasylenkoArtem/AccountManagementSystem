@@ -36,9 +36,9 @@ export const reducer = (state: UserState = initialState, action: any) => {
         case GET_USERS.SUCCESS:
             return updateObject(state, { users: action.users, isLoadingTable: false });
         case ADD_USER.REQUEST:
-            return updateObject(state, { isSaved: false });
+            return updateObject(state, { isSaved: false, isLoading: true });
         case ADD_USER.SUCCESS:
-            return updateObject(state, { users: state.users.concat(action.user), isSaved: true });
+            return updateObject(state, { users: state.users.concat(action.user), isSaved: true, isLoading: false });
 
 
         default:
