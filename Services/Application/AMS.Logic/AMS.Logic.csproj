@@ -124,6 +124,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Notification\NotificationQueries.cs" />
     <Compile Include="Queries\Notification\NotificationViewModel.cs" />
+    <Compile Include="Queries\Room\RoomQueries.cs" />
     <Compile Include="Queries\UserRoom\UserRoomQueries.cs" />
     <Compile Include="Queries\User\UserQueries.cs" />
     <Compile Include="Queries\User\UserViewModels.cs" />

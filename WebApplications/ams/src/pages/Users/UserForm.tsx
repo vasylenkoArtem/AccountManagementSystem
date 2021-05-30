@@ -1,12 +1,14 @@
 
-import { Col, Input, Row, Select, Form, Button } from 'antd';
+import { Col, Input, Row, Select, Form, Button, Collapse } from 'antd';
 import { FormInstance } from 'antd/lib/form/Form';
 import React from 'react';
 import { User } from './reducer';
 import { UserType, userTypes } from '../../helpers/types';
+import { Room } from '../Rooms/reducer';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
+const { Panel } = Collapse;
 
 interface PassedProps {
     userInfo?: User;
@@ -15,6 +17,7 @@ interface PassedProps {
     onChange: (fieldName: keyof User, fieldValue: any) => void;
     handleReset: () => void;
     isLoading: boolean;
+    rooms?: Room[];
 }
 
 class UserForm extends React.Component<PassedProps>{
@@ -67,12 +70,27 @@ class UserForm extends React.Component<PassedProps>{
         this.props.onChange('UserType', event);
     }
 
+    handleRoomsChange = (rooms: string[]) => {
+        if (!this.formRef.current) return;
+
+        const names = rooms && rooms.length !== 0
+            ? Array.from(new Set(rooms.map((i: string) => i.trim().replace(' ', '').toUpperCase())))
+            : undefined;
+
+        this.formRef.current.setFieldsValue({ "AvailableRooms": names });
+        this.props.onChange('RoomNumbers', names);
+    }
+
     render() {
 
         const { userInfo } = this.props;
 
         const userTypeOptions = userTypes.map((type: UserType) => {
             return <Option key={type.Id.toString()} value={type.Id.toString()}>{type.Name}</Option>;
+        });
+
+        const roomsOptions = this.props.rooms?.map((room: Room) => {
+            return <Option key={room.Id.toString()} value={room.Id.toString()}>{room.Number}</Option>;
         });
 
         return <>
@@ -83,7 +101,6 @@ class UserForm extends React.Component<PassedProps>{
                 onFinishFailed={this.onFinishFailed}
 
             >
-
 
                 <FormItem
                     name={"FirstName"}
@@ -96,7 +113,7 @@ class UserForm extends React.Component<PassedProps>{
 
                     <Input
                         name="FirstName"
-                        placeholder={"First Name"}
+                        placeholder={"Please, input first name"}
                         onChange={(e: any) => {
                             this.props.onChange(e.target.name, e.target.value);
                         }} />
@@ -114,7 +131,7 @@ class UserForm extends React.Component<PassedProps>{
                 >
                     <Input
                         name="LastName"
-                        placeholder={"Last Name"}
+                        placeholder={"Please, input last name"}
                         onChange={(e: any) => {
                             this.props.onChange(e.target.name, e.target.value);
                         }} />
@@ -132,7 +149,7 @@ class UserForm extends React.Component<PassedProps>{
                     <Input
                         style={{ width: 384, marginLeft: 30 }}
                         name="Email"
-                        placeholder={"Email"}
+                        placeholder={"Please, input email"}
                         onChange={(e: any) => {
                             this.props.onChange(e.target.name, e.target.value);
                         }} />
@@ -150,13 +167,51 @@ class UserForm extends React.Component<PassedProps>{
                     <Select
                         style={{ width: 384, marginLeft: 5 }}
                         showSearch={true}
-                        placeholder={"User type"}
+                        placeholder={"Please, select user type"}
                         optionFilterProp="children"
                         onChange={this.handleUserTypeChange}
                     >
                         {userTypeOptions}
                     </Select>
                 </FormItem>
+
+                <Collapse style={{ marginBottom: 20 }} >
+                    <Panel header="Rooms access information" key="1">
+                        <FormItem
+                            name={"RFIDKey"}
+                            label={`RFID Key`}
+                        >
+                            <Input
+                                // style={{ width: 384, marginLeft: 20 }}
+                                name="RFIDKey"
+                                placeholder={"Please, input RFID key"}
+                                onChange={(e: any) => {
+                                    this.props.onChange(e.target.name, e.target.value);
+                                }} />
+
+                        </FormItem>
+                        <FormItem
+                            name={"AvailableRooms"}
+                            label={`Available rooms`}
+                        >
+                            <Select
+                                mode="multiple"
+                                style={{ width: 384, marginLeft: 5 }}
+                                showSearch={true}
+                                placeholder={"Please, select available rooms"}
+                                optionFilterProp="children"
+                                onChange={(value: any, option: any) => this.handleRoomsChange(value)}
+                            >
+                                {roomsOptions}
+                            </Select>
+
+                        </FormItem>
+                    </Panel>
+                </Collapse>
+
+
+
+
                 <FormItem>
                     <div>
                         <Button

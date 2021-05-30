@@ -80,7 +80,8 @@ export const addUser = (user : User) => {
             ComputerId: 0,
             AllowedPlasticTypes: ["ABS"],
             AllowedPlasticQuantity: 10,
-            UserId: 0
+            UserId: 0,
+            RFIDKey : user.RFIDKey
         }
 
 

@@ -37,6 +37,7 @@ namespace AMS.Logic.Services
         public string Email { get; set; }
         public int UserTypeId { get; set; }
         public string IdentityLockUserId { get; set; }
+        public string RFIDKey { get; set; }
         public List<int> PrinterIds { get; set; }
         public int ComputerId { get; set; }
         public List<string> AllowedPlasticTypes { get; set; }

@@ -5,6 +5,8 @@ import { AppState } from '../../reducer';
 import { User } from './reducer';
 import UserForm from './UserForm';
 import { addUser } from './actions'
+import { getRooms } from '../Rooms/actions';
+import { Room } from '../Rooms/reducer';
 
 interface PassedProps {
     onCancel: () => void;
@@ -15,6 +17,7 @@ interface PassedProps {
 
 interface DispatchFromProps {
     addUser: (user: User) => void;
+    getRooms: () => void;
 }
 
 interface OwnStateProps {
@@ -23,6 +26,7 @@ interface OwnStateProps {
 
 interface StateFromProps {
     isLoading: boolean;
+    rooms?: Room[];
 }
 
 class UserContainer extends React.Component<StateFromProps & DispatchFromProps & PassedProps, OwnStateProps>{
@@ -31,8 +35,10 @@ class UserContainer extends React.Component<StateFromProps & DispatchFromProps &
         userInfo: {} as User
     }
 
-    
-    
+
+    componentDidMount = () => {
+        this.props.getRooms();
+    }
 
     handleCancel = () => {
         this.props.onCancel();
@@ -74,6 +80,7 @@ class UserContainer extends React.Component<StateFromProps & DispatchFromProps &
                     onChange={this.handleChange}
                     isLoading={this.props.isLoading}
                     handleReset={this.props.onCancel}
+                    rooms={this.props.rooms}
                 />
 
             </Modal>
@@ -85,11 +92,13 @@ class UserContainer extends React.Component<StateFromProps & DispatchFromProps &
 
 const mapStateToProps = (state: AppState): StateFromProps => {
     return {
-        isLoading: state.user.isLoading
+        isLoading: state.user.isLoading,
+        rooms: state.room.rooms
 
     };
 };
 
 export default connect<StateFromProps, DispatchFromProps, any, AppState>(mapStateToProps, {
-    addUser
+    addUser,
+    getRooms
 })(UserContainer);
