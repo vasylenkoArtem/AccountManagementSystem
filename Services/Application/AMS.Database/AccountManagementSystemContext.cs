@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Z.EntityFramework.Plus;
+using SmartLab.Database;
 
 namespace AMS.Database
 {
 
-    public class AccountManagementSystemContext : DbContext, IUnitOfWork
+    public class AccountManagementSystemContext : DbContext, IAccountManagementSystemContext
     {
         public AccountManagementSystemContext() : base("DefaultConnection")
         {

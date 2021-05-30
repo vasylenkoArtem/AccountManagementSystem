@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 namespace AMS.API.Controllers
 {
    
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("users")]
     public class UsersController : ApiController
     {

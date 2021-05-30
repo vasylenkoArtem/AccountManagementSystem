@@ -12,6 +12,7 @@ using AMS.Logic.Queries;
 using AMS.Database.MongoDb;
 using SmartLab.Logic.Services.Notification.Providers;
 using AMS.Database.Repositories;
+using SmartLab.Database;
 
 namespace AMS.API
 {
@@ -34,10 +35,10 @@ namespace AMS.API
 
         private static void RegisterServices(ContainerBuilder builder)
         {
-            builder.Register<IUnitOfWork>(c =>
-            {
-                return new AccountManagementSystemContext();
-            }).InstancePerRequest();
+
+            builder.RegisterType<AccountManagementSystemContext>()
+            .As<IAccountManagementSystemContext>()
+            .InstancePerRequest();
 
             builder.Register(_ => new ConnectionStringProvider(_queriesConnectionString))
                .As<IConnectionStringProvider>();
