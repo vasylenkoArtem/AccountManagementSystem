@@ -13,6 +13,7 @@ using AMS.Database.MongoDb;
 using SmartLab.Logic.Services.Notification.Providers;
 using AMS.Database.Repositories;
 using SmartLab.Database;
+using SmartLab.Logic.Queries;
 
 namespace AMS.API
 {
@@ -90,6 +91,17 @@ namespace AMS.API
                .As<IRoomRepository>()
                .InstancePerRequest();
 
+            builder.RegisterType<ComputerRepository>()
+              .As<IComputerRepository>()
+              .InstancePerRequest();
+
+            builder.RegisterType<ComputerQueries>()
+              .As<IComputerQueries>()
+              .InstancePerRequest();
+
+            builder.RegisterType<HistoryQueries>()
+              .As<IHistoryQueries>()
+              .InstancePerRequest();
 
 
         }

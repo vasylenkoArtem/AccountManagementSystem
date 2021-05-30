@@ -1,5 +1,18 @@
 import { ReactElement } from "react";
+import moment from 'moment';
+export const dateFormat = 'DD-MMM-YYYY';
+export const dateTimeFormat = 'DD-MMM-YYYY HH:mm';
+export const isoShortDateFormat = 'YYYY-MM-DDT00:00:00';
 //import { LocalizedElementMap } from 'react-localize-redux';
+
+export const formatDateString = (dateToFormat: any, withTime: boolean = false) => {
+
+    if (!dateToFormat || dateToFormat.trim().length === 0) {
+        return dateToFormat;
+    }
+
+    return moment(new Date(dateToFormat)).format(withTime ? dateTimeFormat : dateFormat);
+};
 
 export declare type ColumnSetting = {
     Key: string;
@@ -40,7 +53,7 @@ export const getFilterValuesByPropertyName = (
     nestedPropertyIsStringArray: boolean = false,
     numberValuesSorting: boolean = false
 ) => {
-    
+
     let names: any[] = [];
     if (!objects || objects.length === 0) {
         return names;
@@ -132,3 +145,6 @@ export const sortNumbers = (a: number, b: number) => {
         return 0;
     }
 };
+
+
+

@@ -1,4 +1,5 @@
 ﻿using AMS.Domain;
+using AMS.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SmartLab.Domain
 {
-    public class UserMessenger
+    public class UserMessenger : IAuditable
     {
         [Key]
         public int Id { get; private set; }

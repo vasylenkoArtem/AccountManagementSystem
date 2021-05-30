@@ -1,5 +1,5 @@
 ﻿using AMS.Domain;
-using AMS.Domain.Computer;
+using AMS.Domain;
 using AMS.Domain.IoT;
 using AMS.Domain.Printer;
 using SmartLab.Domain;
@@ -10,11 +10,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Z.EntityFramework.Plus;
 
 namespace SmartLab.Database
 {
     public interface IAccountManagementSystemContext : IUnitOfWork
     {
+        DbSet<AuditEntry> AuditEntries { get; set; }
+        DbSet<AuditEntryProperty> AuditEntryProperties { get; set; }
         DbSet<User> Users { get; set; }
         DbSet<Room> Rooms { get; set; }
         DbSet<UserRoom> UserRooms { get; set; }

@@ -10,11 +10,11 @@ using System.Web.Http;
 using AMS.API.Exstensions;
 using System.Web.Http.Cors;
 using Newtonsoft.Json;
+using AMS.Domain;
 
 namespace AMS.API.Controllers
 {
    
-    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("users")]
     public class UsersController : ApiController
     {
@@ -43,10 +43,9 @@ namespace AMS.API.Controllers
             return null;
         }
 
-       
         [Route("")]
         [HttpPost]
-        public async Task<IHttpActionResult> AddUser()
+        public async Task<User> AddUser()
         {
             var requestContent = Request.Content;
             var jsonContent = await requestContent.ReadAsStringAsync();
@@ -54,7 +53,7 @@ namespace AMS.API.Controllers
 
             var user = await _userService.AddNewUser(requestParams);
 
-            return Ok(user);
+            return user;
         }
 
         [Route("history")]

@@ -10,10 +10,15 @@ namespace AMS.API
     {
         public static void Register(HttpConfiguration config)
         {
+            // enable and allow all CORS 
             var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
 
-            // Web API configuration and services
+            // prevent infinite looping error
+            config.Formatters.JsonFormatter
+            .SerializerSettings
+            .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
 
             // Web API routes
             config.MapHttpAttributeRoutes();

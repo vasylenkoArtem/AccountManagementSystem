@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using AMS.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,7 @@ using DomainUser = AMS.Domain.User;
 
 namespace AMS.Domain.Printer
 {
-    public class UserPrinter
+    public class UserPrinter : IAuditable
     {
         [Key]
         public int Id { get; set; }

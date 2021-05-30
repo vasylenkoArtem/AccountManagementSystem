@@ -1,5 +1,6 @@
-﻿using AMS.Domain.Computer;
+﻿using AMS.Domain;
 using AMS.Domain.Printer;
+using AMS.Helpers;
 using SmartLab.Domain;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace AMS.Domain
 {
-    public class User
+    public class User : IAuditable
     {
         public User()
         {

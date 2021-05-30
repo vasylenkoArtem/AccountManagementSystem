@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AMS.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using DomainUser = AMS.Domain.User;
 
-namespace AMS.Domain.Computer
+namespace AMS.Domain
 {
-    public class UserComputer
+    public class UserComputer : IAuditable
     {
         [Key]
         public int Id { get; set; }

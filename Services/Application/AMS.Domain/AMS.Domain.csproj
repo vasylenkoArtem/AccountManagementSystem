@@ -55,6 +55,15 @@
     <Reference Include="TLSharp.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\TLSharp.0.1.0.574\lib\net46\TLSharp.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Z.EntityFramework.Extensions, Version=5.1.37.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Z.EntityFramework.Extensions.5.1.37\lib\net45\Z.EntityFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=5.1.37.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Z.EntityFramework.Plus.EF6.5.1.37\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Z.Expressions.Eval, Version=4.0.43.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Z.Expressions.Eval.4.0.43\lib\net45\Z.Expressions.Eval.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\IDbContextTransactionProvider.cs" />
@@ -62,6 +71,7 @@
     <Compile Include="Base\IUnitOfWork.cs" />
     <Compile Include="Base\DbContextTransactionProvider.cs" />
     <Compile Include="Computer\Computer.cs" />
+    <Compile Include="Computer\IComputerRepository.cs" />
     <Compile Include="Computer\UserComputer.cs" />
     <Compile Include="IoT\IoTComponent.cs" />
     <Compile Include="IoT\IoTSet.cs" />
@@ -77,7 +87,12 @@
     <Compile Include="User\UserMessenger.cs" />
     <Compile Include="User\UserRoom.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AMS.Helpers\AMS.Helpers.csproj">
+      <Project>{23dc4b5f-0eb4-45f9-b549-3788e2b3a047}</Project>
+      <Name>AMS.Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

@@ -1,22 +1,18 @@
-﻿using AMS.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AMS.Domain
+namespace SmartLab.Logic.Queries
 {
-    public class Computer : IAuditable
+    public class Computer
     {
-        [Key]
         public int Id { get; set; }
-
         public int OperatingSystemId { get; set; }
-
+        public string OperationSystem { get; set; }
         public int RoomId { get; set; }
-
-        public virtual Room Room { get; set; }
+        public string RoomName { get; set; }
+        public string RoomNumber { get; set; }
     }
 }

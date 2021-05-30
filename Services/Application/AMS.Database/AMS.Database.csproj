@@ -115,17 +115,18 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Z.EntityFramework.Extensions, Version=5.1.16.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Z.EntityFramework.Extensions.5.1.16\lib\net45\Z.EntityFramework.Extensions.dll</HintPath>
+    <Reference Include="Z.EntityFramework.Extensions, Version=5.1.37.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Z.EntityFramework.Extensions.5.1.37\lib\net45\Z.EntityFramework.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Z.EntityFramework.Plus.EF6, Version=5.1.16.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Z.EntityFramework.Plus.EF6.5.1.16\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=5.1.37.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Z.EntityFramework.Plus.EF6.5.1.37\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
     </Reference>
-    <Reference Include="Z.Expressions.Eval, Version=4.0.30.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Z.Expressions.Eval.4.0.30\lib\net45\Z.Expressions.Eval.dll</HintPath>
+    <Reference Include="Z.Expressions.Eval, Version=4.0.43.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Z.Expressions.Eval.4.0.43\lib\net45\Z.Expressions.Eval.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComputerRepository.cs" />
     <Compile Include="IAccountManagementSystemContext.cs" />
     <Compile Include="Migrations\202102281618092_InitilaScheme.cs" />
     <Compile Include="Migrations\202102281618092_InitilaScheme.Designer.cs">
@@ -146,6 +147,10 @@
     <Compile Include="Migrations\202105231159109_AddNotificationSubscriptionAndUserMessengersTables.cs" />
     <Compile Include="Migrations\202105231159109_AddNotificationSubscriptionAndUserMessengersTables.Designer.cs">
       <DependentUpon>202105231159109_AddNotificationSubscriptionAndUserMessengersTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105301603511_AddedAudit.cs" />
+    <Compile Include="Migrations\202105301603511_AddedAudit.Designer.cs">
+      <DependentUpon>202105301603511_AddedAudit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MongoDB\IMongoDbConnector.cs" />
@@ -189,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105231159109_AddNotificationSubscriptionAndUserMessengersTables.resx">
       <DependentUpon>202105231159109_AddNotificationSubscriptionAndUserMessengersTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105301603511_AddedAudit.resx">
+      <DependentUpon>202105301603511_AddedAudit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
