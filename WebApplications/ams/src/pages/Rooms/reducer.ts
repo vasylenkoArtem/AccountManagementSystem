@@ -10,18 +10,20 @@ export type Room = {
 export type RoomState = {
     rooms?: Room[];
     isLoading: boolean;
+    isLoadingTableData: boolean;
 }
 
 const initialState = {
-    isLoading: false
+    isLoading: false,
+    isLoadingTableData: false
 }
 
 export const reducer = (state: RoomState = initialState, action: any) => {
     switch (action.type) {
         case GET_ROOMS.REQUEST:
-            return updateObject(state, { rooms: undefined, isLoading: true });
+            return updateObject(state, { rooms: undefined, isLoadingTableData: true });
         case GET_ROOMS.SUCCESS:
-            return updateObject(state, { rooms: action.rooms, isLoading: false });
+            return updateObject(state, { rooms: action.rooms, isLoadingTableData: false });
 
         default:
             return state;
