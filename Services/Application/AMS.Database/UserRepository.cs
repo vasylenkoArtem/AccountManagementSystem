@@ -25,6 +25,13 @@ namespace AMS.Database.Repositories
             return await _context.Users.FindAsync(userId);
         }
 
+        public async Task<User> DeleteUser(int userId)
+        {
+            var user = await GetAsync(userId);
+
+            return _context.Users.Remove(user);
+        }
+
         public User AddUser(User user)
         {
             return _context.Users.Add(user);

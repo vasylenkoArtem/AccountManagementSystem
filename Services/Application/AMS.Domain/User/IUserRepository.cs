@@ -15,6 +15,8 @@ namespace AMS.Domain
 
         User AddUser(User user);
 
+        Task<User> DeleteUser(int userId);
+
 
     }
 }

@@ -15,6 +15,7 @@ namespace AMS.Logic.Services
     public interface IUserService
     {
         Task<User> AddNewUser(UserBuilderParams userBuilderParams);
+        Task DeleteUser(int userId);
     }
 
     public class UserService : IUserService
@@ -53,6 +54,16 @@ namespace AMS.Logic.Services
             await _notificationService.SendTextMessage((int)ActionType.ManageUsers, $"New User with Id {user.Id} added");
 
             return savedUser;
+        }
+
+        public async Task DeleteUser(int userId)
+        {
+            await _userRepository.DeleteUser(userId);
+
+            if (!await _userRepository.UnitOfWork.SaveEntitiesAsync())
+            {
+                throw new Exception("Something went wrong during delete user");
+            }
         }
     }
 }

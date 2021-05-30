@@ -67,7 +67,9 @@ namespace AMS.API.Controllers
         [HttpDelete]
         public async Task<IHttpActionResult> DeleteUser(int userId)
         {
-            return null;
+            await _userService.DeleteUser(userId);
+
+            return Ok();
         }
     }
 }

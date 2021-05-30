@@ -48,7 +48,7 @@ class HistoryList extends React.Component<StateFromProps & DispatchFromProps & P
             //props
             { Key: 'PropertyName', Visible: true, Title: "PropertyName" },
             { Key: 'OldValue', Visible: true, Title: "Old Value" },
-            { Key: 'NewValue', Visible: true, Title: "Old Value" },
+            { Key: 'NewValue', Visible: true, Title: "New Value" },
 
 
             { Key: 'actions', Visible: true, width: 50 },
@@ -104,7 +104,7 @@ class HistoryList extends React.Component<StateFromProps & DispatchFromProps & P
                                 if(!(row.Properties?.length > 0)){
                                     return null;
                                 }
-                                
+
                                 return <Button
                                     size="small"
                                     className="tr-action-item"
