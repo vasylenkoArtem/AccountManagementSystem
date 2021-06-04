@@ -10,7 +10,9 @@ import { ColumnProps } from 'antd/lib/table';
 import { ColumnSetting, formatDateString, getFilterValuesByPropertyName, sortAlphabeticaly } from '../../helpers/tableHelper';
 import { PlusOutlined } from '@ant-design/icons';
 //import UserContainer from './UserContainer';
+import { Tabs } from 'antd';
 
+const { TabPane } = Tabs;
 
 interface PassedProps {
 
@@ -101,7 +103,7 @@ class HistoryList extends React.Component<StateFromProps & DispatchFromProps & P
                         switch (columnKey) {
 
                             case 'actions':
-                                if(!(row.Properties?.length > 0)){
+                                if (!(row.Properties?.length > 0)) {
                                     return null;
                                 }
 
@@ -117,13 +119,68 @@ class HistoryList extends React.Component<StateFromProps & DispatchFromProps & P
                             return formatDateString(text, element.IsDateTime);
                         }
 
-                       
+
                         return text;
                     }
                 });
             }
         });
 
+
+        const dataSource2 = [
+
+            {
+                key: '2',
+                name: 'Ivan Petrov',
+                roomName: '106',
+                date: '4 June, 16:58',
+                status: 'access denied'
+            },
+            {
+                key: '1',
+                name: 'Artem Vasylenko',
+                roomName: '106',
+                date: '4 June, 16:52',
+                status: 'access granted'
+            },
+            {
+                key: '3',
+                name: 'Vladislav Sheyko',
+                roomName: '103a',
+                date: '3 June, 11:00',
+                status: 'access granted'
+            },
+            {
+                key: '4',
+                name: 'Aleksei Petrenko',
+                roomName: '103a',
+                date: '3 June, 9:00',
+                status: 'access denied'
+            }
+        ];
+
+        const columns2 = [
+            {
+                title: 'User Name',
+                dataIndex: 'name',
+                key: 'name',
+            },
+            {
+                title: 'Room',
+                dataIndex: 'roomName',
+                key: 'roomName',
+            },
+            {
+                title: 'Date',
+                dataIndex: 'date',
+                key: 'date',
+            },
+            {
+                title: 'Status',
+                dataIndex: 'status',
+                key: 'status',
+            },
+        ];
 
         return (<>
             <MainLayout>
@@ -140,13 +197,27 @@ class HistoryList extends React.Component<StateFromProps & DispatchFromProps & P
                 /> */}
 
 
-                <Table
-                    rowKey="AuditEntryID"
-                    columns={columns}
-                    dataSource={this.props.historyEntries}
-                    loading={this.props.isLoadingTable}
-                    childrenColumnName={"Properties"}
-                />
+
+
+
+                <Tabs defaultActiveKey="1" onChange={() => null}>
+                    <TabPane tab="Management history" key="1">
+                        <Table
+                            rowKey="AuditEntryID"
+                            columns={columns}
+                            dataSource={this.props.historyEntries}
+                            loading={this.props.isLoadingTable}
+                            childrenColumnName={"Properties"}
+                        />
+                    </TabPane>
+                    <TabPane tab="Rooms unlocking history" key="2">
+                        <Table
+                            dataSource={dataSource2}
+                            columns={columns2}
+                        />
+                    </TabPane>
+
+                </Tabs>
 
 
             </MainLayout>
