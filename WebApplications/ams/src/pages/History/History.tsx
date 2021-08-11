@@ -183,7 +183,7 @@ class HistoryList extends React.Component<StateFromProps & DispatchFromProps & P
         ];
 
         return (<>
-            <MainLayout>
+            <MainLayout pageTitle="History">
 
                 {/* <Button onClick={this.showAddUsertModal} type="primary" icon={<PlusOutlined />}>
                     Add new

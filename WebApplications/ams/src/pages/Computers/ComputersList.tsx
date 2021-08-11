@@ -115,7 +115,7 @@ class ComputersList extends React.Component<StateFromProps & DispatchFromProps &
 
 
         return (<>
-            <MainLayout>
+            <MainLayout pageTitle="Computers">
 
                 <Button onClick={this.showAddUsertModal} type="primary" icon={<PlusOutlined />}>
                     Add new

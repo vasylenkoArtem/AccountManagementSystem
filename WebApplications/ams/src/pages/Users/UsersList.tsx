@@ -41,9 +41,9 @@ class UsersList extends React.Component<StateFromProps & DispatchFromProps & Pas
             { Key: 'FirstName', Visible: true, Title: "First Name" },
             { Key: 'LastName', Visible: true, Title: "Last Name" },
             { Key: 'Email', Visible: true, Title: "Email" },
-            { Key: 'UserTypeId', Visible: true, Title: "User Type" },
-            { Key: 'RFIDKey', Visible: true, Title: "RFID Key" },
-            { Key: 'RoomIds', Visible: true, Title: "Room Ids" },
+            { Key: 'UserType', Visible: true, Title: "User Type" },
+            { Key: 'IdentityLockUserId', Visible: true, Title: "RFID Key" },
+            //{ Key: 'RoomIds', Visible: true, Title: "Room Ids" },
             { Key: 'RoomNumbers', Visible: true, Title: "Room Numbers" },
             { Key: 'actions', Visible: true, width: 50 },
         ],
@@ -86,6 +86,8 @@ class UsersList extends React.Component<StateFromProps & DispatchFromProps & Pas
         this.setState({ modalVisible: true, selectedUserInfo: row, mode: 'edit' });
     }
 
+  
+
     render() {
 
         const columns: ColumnProps<any>[] = [];
@@ -107,8 +109,7 @@ class UsersList extends React.Component<StateFromProps & DispatchFromProps & Pas
                     },
                     render: (text: string, row: User) => {
                         switch (columnKey) {
-                            case 'UserTypeId':
-                                return this.getUserType(row.UserTypeId);
+                           
                             case 'actions':
 
                                 return <Button
@@ -129,9 +130,16 @@ class UsersList extends React.Component<StateFromProps & DispatchFromProps & Pas
             }
         });
 
+        const data = this.props.users?.map(n => {
+            return {
+                ...n,
+                UserType : this.getUserType(n.UserTypeId)
+            }
+        }) ;
 
         return (<>
-            <MainLayout>
+         
+        <MainLayout pageTitle="Users">
 
                 <Button onClick={this.showAddUsertModal} type="primary" icon={<PlusOutlined />}>
                     Add new
@@ -148,7 +156,7 @@ class UsersList extends React.Component<StateFromProps & DispatchFromProps & Pas
                 <Table
                     rowKey="Id"
                     columns={columns}
-                    dataSource={this.props.users}
+                    dataSource={data}
                     loading={this.props.isLoadingTable}
                 />
 

@@ -114,7 +114,7 @@ class RoomsList extends React.Component<StateFromProps & DispatchFromProps & Pas
 
 
         return (<>
-            <MainLayout>
+            <MainLayout pageTitle="Rooms">
 
                 <Button onClick={this.showAddUsertModal} type="primary" icon={<PlusOutlined />}>
                     Add new
