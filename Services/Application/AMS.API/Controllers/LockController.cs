@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace AMS.API.Controllers
 {
 
-    [Authorize(Roles = "LaboratoryWorker")]
+    //[Authorize(Roles = "LaboratoryWorker")]
     [RoutePrefix("lock")]
     public class LockController : ApiController
     {

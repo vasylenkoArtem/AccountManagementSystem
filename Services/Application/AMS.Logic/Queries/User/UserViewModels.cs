@@ -13,6 +13,7 @@ namespace AMS.Logic.Queries
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int UserTypeId { get; set; }
+        public string UserType { get; set; }
         public string RFIDKey { get; set; }
         public string IdentityLockUserId { get; set; }
         public string Email { get; set; }

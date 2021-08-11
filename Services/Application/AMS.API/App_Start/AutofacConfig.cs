@@ -12,6 +12,8 @@ using AMS.Logic.Queries;
 using AMS.Database.MongoDb;
 using SmartLab.Logic.Services.Notification.Providers;
 using AMS.Database.Repositories;
+using SmartLab.Database;
+using SmartLab.Logic.Queries;
 
 namespace AMS.API
 {
@@ -34,10 +36,10 @@ namespace AMS.API
 
         private static void RegisterServices(ContainerBuilder builder)
         {
-            builder.Register<IUnitOfWork>(c =>
-            {
-                return new AccountManagementSystemContext();
-            }).InstancePerRequest();
+
+            builder.RegisterType<AccountManagementSystemContext>()
+            .As<IAccountManagementSystemContext>()
+            .InstancePerRequest();
 
             builder.Register(_ => new ConnectionStringProvider(_queriesConnectionString))
                .As<IConnectionStringProvider>();
@@ -81,6 +83,25 @@ namespace AMS.API
                 .As<IUserRepository>()
                 .InstancePerRequest();
 
+            builder.RegisterType<RoomQueries>()
+                .As<IRoomQueries>()
+                .InstancePerRequest();
+
+            builder.RegisterType<RoomRepository>()
+               .As<IRoomRepository>()
+               .InstancePerRequest();
+
+            builder.RegisterType<ComputerRepository>()
+              .As<IComputerRepository>()
+              .InstancePerRequest();
+
+            builder.RegisterType<ComputerQueries>()
+              .As<IComputerQueries>()
+              .InstancePerRequest();
+
+            builder.RegisterType<HistoryQueries>()
+              .As<IHistoryQueries>()
+              .InstancePerRequest();
 
 
         }

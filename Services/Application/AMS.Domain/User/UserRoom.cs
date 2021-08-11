@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AMS.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,8 +8,13 @@ using System.Threading.Tasks;
 
 namespace AMS.Domain
 {
-    public class UserRoom
+    public class UserRoom : IAuditable
     {
+        public UserRoom(bool isAvailable = true)
+        {
+            IsAvaliable = isAvailable;
+        }
+
         [Key]
         public int Id { get; private set; }
 

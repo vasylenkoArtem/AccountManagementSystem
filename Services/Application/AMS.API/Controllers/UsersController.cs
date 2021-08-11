@@ -8,6 +8,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AMS.API.Exstensions;
+using System.Web.Http.Cors;
+using Newtonsoft.Json;
+using AMS.Domain;
 
 namespace AMS.API.Controllers
 {
@@ -16,7 +19,7 @@ namespace AMS.API.Controllers
     public class UsersController : ApiController
     {
         private readonly IUserQueries _userQueries;
-        private readonly IUserService _userService;
+        private readonly IUserService _userService; //баг с DI
 
         public UsersController(IUserQueries userQueries, IUserService userService)
         {
@@ -40,15 +43,17 @@ namespace AMS.API.Controllers
             return null;
         }
 
-        [HttpPost]
         [Route("")]
-        public async Task<IHttpActionResult> AddUser()
+        [HttpPost]
+        public async Task<User> AddUser()
         {
-            var requestParams = new UserBuilderParams();
+            var requestContent = Request.Content;
+            var jsonContent = await requestContent.ReadAsStringAsync();
+            var requestParams = JsonConvert.DeserializeObject<UserBuilderParams>(jsonContent);
 
             var user = await _userService.AddNewUser(requestParams);
 
-            return Ok(user);
+            return user;
         }
 
         [Route("history")]
@@ -62,7 +67,9 @@ namespace AMS.API.Controllers
         [HttpDelete]
         public async Task<IHttpActionResult> DeleteUser(int userId)
         {
-            return null;
+            await _userService.DeleteUser(userId);
+
+            return Ok();
         }
     }
 }

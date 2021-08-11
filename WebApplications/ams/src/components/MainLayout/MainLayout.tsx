@@ -21,7 +21,7 @@ interface OwnStateProps {
 }
 
 interface PassedProps {
-
+    pageTitle: string
 }
 
 class MainLayout extends React.Component<PassedProps, OwnStateProps>{
@@ -41,7 +41,7 @@ class MainLayout extends React.Component<PassedProps, OwnStateProps>{
 
                         <div className="logo" style={{ marginBottom: 30 }}>
 
-                            <img src="" alt="logo" width={150} />
+                            {/* <img src="" alt="logo" width={150} /> */}
 
                         </div>
 
@@ -96,24 +96,7 @@ class MainLayout extends React.Component<PassedProps, OwnStateProps>{
                     </Sider>
                     <Layout>
                         <Header style={{ background: '#fff', padding: 10, marginLeft: 16, marginTop : 15, marginRight : 15 }} >
-
-                            <Breadcrumb style={{ margin: '16px 0', marginLeft: 5 }}>
-                                <Breadcrumb.Item>Page</Breadcrumb.Item>
-                                <Breadcrumb.Item>Nested page</Breadcrumb.Item>
-
-                                {/* <Switch>
-
-                                    <Route path="/" exact={true} component={Home} />
-                                    <Route path="/users" exact={true} component={UsersList} />
-                                    <Route path="/rooms" exact={true} component={RoomsList} />
-                                    <Route path="/iot-sets" exact={true} component={IoTSetList} />
-                                    <Route path="/computers" exact={true} component={ComputersList} />
-                                    <Route path="/history" exact={true} component={History} />
-
-                                </Switch> */}
-
-                            </Breadcrumb>
-
+                            <span style={{fontSize: 30}}>{this.props.pageTitle}</span>
                         </Header>
 
 

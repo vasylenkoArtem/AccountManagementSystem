@@ -26,13 +26,13 @@ namespace AMS.Logic.Enums
         UnlockRoom = 2,
         Manage_3D_Printers = 3,
         Use_3D_Printers = 4,
-        Issue_3D_Printers,
-        ManageRooms = 5,
-        ManageUserRooms = 6,
-        ManageComputers = 7,
-        IssueComputers = 8,
-        IssueIoTSets = 9,
-        ManageIoTSets = 10
+        Issue_3D_Printers = 5,
+        ManageRooms = 6,
+        ManageUserRooms = 7,
+        ManageComputers = 8,
+        IssueComputers = 9,
+        IssueIoTSets = 10,
+        ManageIoTSets = 11
 
     }
 

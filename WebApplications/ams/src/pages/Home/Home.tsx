@@ -14,7 +14,7 @@ class Home extends React.Component<any>{
     render() {
         return (<>
 
-        <MainLayout>
+<MainLayout pageTitle="Home">
 
                 Home page
 

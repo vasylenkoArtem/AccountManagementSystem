@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace AMS.API
 {
@@ -9,7 +10,15 @@ namespace AMS.API
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            // enable and allow all CORS 
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+
+            // prevent infinite looping error
+            config.Formatters.JsonFormatter
+            .SerializerSettings
+            .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
 
             // Web API routes
             config.MapHttpAttributeRoutes();

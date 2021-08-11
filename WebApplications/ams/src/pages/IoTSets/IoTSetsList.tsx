@@ -14,7 +14,7 @@ class IoTSetList extends React.Component<any>{
     render() {
         return (<>
 
-            <MainLayout>
+<MainLayout pageTitle="IoT Sets">
 
                 IoTSetList page
 

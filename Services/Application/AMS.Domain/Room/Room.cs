@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AMS.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AMS.Domain
 {
-    public class Room
+    public class Room : IAuditable
     {
         [Key]
         public int Id { get; set; }

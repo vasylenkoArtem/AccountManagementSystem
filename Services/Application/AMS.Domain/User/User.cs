@@ -1,5 +1,6 @@
-﻿using AMS.Domain.Computer;
+﻿using AMS.Domain;
 using AMS.Domain.Printer;
+using AMS.Helpers;
 using SmartLab.Domain;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,16 @@ using System.Threading.Tasks;
 
 namespace AMS.Domain
 {
-    public class User
+    public class User : IAuditable
     {
+        public User()
+        {
+            UserPrinters = new List<UserPrinter>();
+            Computers = new List<UserComputer>();
+            Messengers = new List<UserMessenger>();
+            UserRooms = new List<UserRoom>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -39,12 +48,7 @@ namespace AMS.Domain
 
         public virtual List<UserComputer> Computers { get; set; }
         public virtual List<UserMessenger> Messengers { get; set; }
+        public virtual List<UserRoom> UserRooms { get; set; }
 
-
-        public User()
-        {
-            Computers = new List<UserComputer>();
-            UserPrinters = new List<UserPrinter>();
-        }
     }
 }

@@ -22,23 +22,27 @@ namespace AMS.Logic.Services
             _userBuilder.CreateUserObject();
             _userBuilder.BuildPersonalInfo();
 
-            switch (userTypeId)
-            {
-                case (int)UserType.Guest:
-                    BuildGuestUser();
-                    break;
+            _userBuilder.BuildRooms();
 
-                case (int)UserType.Student:
-                    BuildStudentUser();
-                    break;
+            //TODO: Refactor and integrate builder
 
-                case (int)UserType.Engineer:
-                    BuildEngineerUser();
-                    break;
+            //switch (userTypeId)
+            //{
+            //    case (int)UserType.Guest:
+            //        BuildGuestUser();
+            //        break;
 
-                default:
-                    throw new Exception("Incorrect user type");
-            }
+            //    case (int)UserType.Student:
+            //        BuildStudentUser();
+            //        break;
+
+            //    case (int)UserType.Engineer:
+            //        BuildEngineerUser();
+            //        break;
+
+            //    default:
+            //        throw new Exception("Incorrect user type");
+            //}
         }
 
         private void BuildGuestUser()

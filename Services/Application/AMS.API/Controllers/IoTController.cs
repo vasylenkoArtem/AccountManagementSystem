@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace AMS.API.Controllers
 {
+    [RoutePrefix("iot")]
     public class IoTController : ApiController
     {
         [Route("")]

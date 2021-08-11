@@ -1,4 +1,5 @@
 ﻿using AMS.Domain;
+using SmartLab.Database;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,11 +11,11 @@ namespace AMS.Database.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly AccountManagementSystemContext _context;
+        private readonly IAccountManagementSystemContext _context;
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public UserRepository(AccountManagementSystemContext context)
+        public UserRepository(IAccountManagementSystemContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
@@ -24,9 +25,16 @@ namespace AMS.Database.Repositories
             return await _context.Users.FindAsync(userId);
         }
 
+        public async Task<User> DeleteUser(int userId)
+        {
+            var user = await GetAsync(userId);
+
+            return _context.Users.Remove(user);
+        }
+
         public User AddUser(User user)
         {
-            throw new NotImplementedException();
+            return _context.Users.Add(user);
         }
 
         public async Task<List<User>> GetUsersAsync()

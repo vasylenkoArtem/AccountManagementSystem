@@ -15,6 +15,7 @@ namespace AMS.Logic.Services
     public interface IUserService
     {
         Task<User> AddNewUser(UserBuilderParams userBuilderParams);
+        Task DeleteUser(int userId);
     }
 
     public class UserService : IUserService
@@ -22,17 +23,19 @@ namespace AMS.Logic.Services
         private readonly INotificationService _notificationService;
         private readonly IMongoDbConnector _mongoDbConnector;
         private readonly IUserRepository _userRepository;
+        private readonly IRoomRepository _roomRepository;
 
-        public UserService(INotificationService notificationService, IMongoDbConnector mongoDbConnector, IUserRepository userRepository)
+        public UserService(INotificationService notificationService, IMongoDbConnector mongoDbConnector, IUserRepository userRepository, IRoomRepository roomRepository)
         {
             _notificationService = notificationService;
             _mongoDbConnector = mongoDbConnector;
             _userRepository = userRepository;
+            _roomRepository = roomRepository;
         }
 
         public async Task<User> AddNewUser(UserBuilderParams userBuilderParams)
         {
-            var userBuilder = new UserBuilder(userBuilderParams);
+            var userBuilder = new UserBuilder(userBuilderParams, _roomRepository);
             var userBuilderDirector = new UserBuilderDirector
             {
                 Builder = userBuilder
@@ -42,11 +45,25 @@ namespace AMS.Logic.Services
             var user = userBuilder.GetResult();
 
             var savedUser = _userRepository.AddUser(user);
-            await _userRepository.UnitOfWork.SaveEntitiesAsync();
 
-            _notificationService.SendTextMessage((int)ActionType.ManageUsers, $"New User with Id {user.Id} added");
+            if (!await _userRepository.UnitOfWork.SaveEntitiesAsync())
+            {
+                throw new Exception("Something went wrong during adding new user");
+            };
+
+            await _notificationService.SendTextMessage((int)ActionType.ManageUsers, $"New User with Id {user.Id} added");
 
             return savedUser;
+        }
+
+        public async Task DeleteUser(int userId)
+        {
+            await _userRepository.DeleteUser(userId);
+
+            if (!await _userRepository.UnitOfWork.SaveEntitiesAsync())
+            {
+                throw new Exception("Something went wrong during delete user");
+            }
         }
     }
 }
