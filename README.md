@@ -1,2 +1,3 @@
-# SmartLab, Account management system
-Diploma project for ONAT
+# Account management system
+
+IoT Laboratory infrastructure management system.
